@@ -1,0 +1,45 @@
+#login {
+    background-image: url('src/assets/login.jpg');
+    background-size: 45% 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.secondary-logo img {
+    max-height: 50px;
+    margin: 40px 60px;
+}
+
+.login-section {
+    width: 900px;
+    margin-top: 120px;
+}
+
+.login-section h2 {
+    margin: 0;
+    color: #014034;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.login-section form {
+    /*border: red 1px solid;*/
+    margin-top: 50px;
+    width: 50%;
+}
+
+.login-section h4 {
+    color: #014034;
+    margin: 0;
+    padding-top: 30px;
+}
+
+.login-section p {
+    color: dimgrey;
+    font-size: 15px;
+}
+
+.button-wrapper {
+    padding: 16px;
+    text-align: center;
+}

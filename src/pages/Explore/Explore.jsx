@@ -1,9 +1,13 @@
 import Navigation from "../../components/Navigation/Navigation.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
 
 function Explore() {
     return (
         <>
-            <Navigation/>
+            <header>
+                <Navigation/>
+            </header>
+            <Footer/>
         </>
     )
 }

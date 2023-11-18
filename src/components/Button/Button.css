@@ -1,4 +1,14 @@
 
 button {
-    background-color: #02735E
+    border-radius: 25px;
+    padding: 5px 25px;
+    background-color: #02735E;
+    color: white;
+    font-family: inherit;
+    font-weight: 500;
+    border: transparent;
+}
+
+.button-link:hover {
+    border-bottom: none;
 }

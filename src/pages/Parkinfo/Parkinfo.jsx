@@ -1,7 +1,11 @@
+import Navigation from "../../components/Navigation/Navigation.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
+
 function Parkinfo() {
     return (
         <>
-            <Parkinfo/>
+            <Navigation/>
+            <Footer/>
         </>
     )
 }

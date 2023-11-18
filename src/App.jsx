@@ -1,3 +1,4 @@
+import './App.css'
 import Home from "./pages/Home/Home.jsx";
 import {Route, Routes} from "react-router-dom";
 import Explore from "./pages/Explore/Explore.jsx";
