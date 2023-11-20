@@ -16,7 +16,7 @@ function Home() {
                        className="search-bar"
                 />
                 <div>
-                    <h2> TOP RATED</h2>
+                {/*    hier komt top rated*/}
                 </div>
             </main>
             <Footer/>

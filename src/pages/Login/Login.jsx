@@ -5,25 +5,32 @@ import {Link} from "react-router-dom";
 import InputFields from "../../components/Input/InputFields.jsx";
 import {useForm} from 'react-hook-form';
 import axios from "axios";
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const { login } = useContext(AuthContext);
+
 
     async function handleFormSubmit(data) {
-        // const [error, toggleError] = useState(false);
         const formData = {
             username: data['username-field'],
             password: data['password-field'],
         }
 
         try {
-            const response = await axios.get(" https://frontend-educational-backend.herokuapp.com/api/test/all", formData);
-            console.log(response);
+            const response = await axios.post("https://frontend-educational-backend.herokuapp.com/api/auth/signin", formData);
+            // console.log(response.data.accessToken);
+
+            login(response.data.accessToken);
 
         } catch (e) {
             console.error(e);
         }
+
     }
+
 
     return (
         <div id="login" className="outer-container">
@@ -45,7 +52,10 @@ function Login() {
                         id="username-field"
                         register={register}
                         validationRules={{
-                            required: 'This field is required',
+                            required: {
+                                value: true,
+                                message: 'This field is required',
+                            },
                             minLength: {
                                 value: 6,
                                 message: 'Username must have 6 characters'
@@ -60,7 +70,10 @@ function Login() {
                         id="password-field"
                         register={register}
                         validationRules={{
-                            required: 'This field is required',
+                            required: {
+                                value: true,
+                                message: 'This field is required',
+                            },
                             minLength: {
                                 value: 6,
                                 message: 'Password must have 6 characters'

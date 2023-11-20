@@ -6,6 +6,7 @@ import Contact from "./pages/Contact/Contact.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Signup from "./pages/Signup/Signup.jsx";
 import Parkinfo from "./pages/Parkinfo/Parkinfo.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/contact" element={<Contact/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/signup" element={<Signup/>}/>
+                <Route path="/profile" element={<Profile/>}/>
             </Routes>
         </>
     )

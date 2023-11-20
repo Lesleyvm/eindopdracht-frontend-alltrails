@@ -1,0 +1,35 @@
+#signup {
+    background-image: url('src/assets/signup.jpg');
+    background-size: 40% 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.signup-section {
+    width: 1000px;
+    margin-top: 80px;
+}
+
+.signup-section h2 {
+    margin: 0;
+    color: #014034;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.signup-section form {
+    /*border: red 1px solid;*/
+    margin-top: 50px;
+    width: 50%;
+}
+
+.signup-section h4 {
+    color: #014034;
+    margin: 0;
+    padding-top: 30px;
+}
+
+.signup-section p {
+    color: dimgrey;
+    font-size: 15px;
+}
