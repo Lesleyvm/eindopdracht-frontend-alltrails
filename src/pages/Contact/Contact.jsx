@@ -1,15 +1,12 @@
 import Footer from "../../components/Footer/Footer.jsx";
-import {Link, NavLink} from "react-router-dom";
-import logo from "../../assets/alltrails-logo.png";
+import Navigation from "../../components/Navigation/Navigation.jsx";
 
 function Contact() {
     return (
         <>
-            <span className="logo-wrapper">
-                <Link to="/">
-                <img src={logo} alt="Company Logo"/>
-                </Link>
-            </span>
+            <header>
+            <Navigation/>
+            </header>
             <Footer/>
         </>
     )

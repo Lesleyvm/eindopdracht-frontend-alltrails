@@ -10,20 +10,18 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    /*padding: 35px 0;*/
-    /*padding-bottom: 100px;*/
     /*border: 1px solid yellow;*/
 }
 
 .navbar-menu {
     list-style: none;
     display: flex;
-    flex-basis: 350px;
+    flex-basis: 450px;
     flex-direction: row;
     justify-content: space-between;
     margin: 0 25px;
+    /*border: 1px solid yellow;*/
 }
-
 
 .logo-wrapper img {
     max-height: 30px;

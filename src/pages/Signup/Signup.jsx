@@ -1,13 +1,17 @@
 import './Signup.css';
 import {useForm} from "react-hook-form";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import logo from "../../assets/alltrails-logo.png";
 import InputFields from "../../components/Input/InputFields.jsx";
 import Button from "../../components/Button/Button.jsx";
 import axios from "axios";
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Signup() {
     const {register, handleSubmit, formState: {errors}} = useForm();
+    const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
 
     async function handleFormSubmit(data) {
         // const [error, toggleError] = useState(false);
@@ -15,12 +19,20 @@ function Signup() {
             username: data['username-field'],
             email: data['email-field'],
             password: data['password-field'],
+            info: data['date-of-birth-field'],
             role: ['user']
         }
 
         try {
             const response = await axios.post("https://frontend-educational-backend.herokuapp.com/api/auth/signup", formData);
             console.log(response);
+            console.log("Account is succesvol aangemaakt!")
+
+            // hiermee logt de gebruiker in na succesvolle registratie
+            // werkt niet, nog naar kijken
+            login(response.data.accessToken);
+
+            navigate('/profile');
 
 
         } catch (e) {
@@ -56,6 +68,22 @@ function Signup() {
                                 value: 6,
                                 message: 'Username must have 6 characters'
                             },
+                        }}
+                        errors={errors}
+                    />
+
+                    {/*werkt niet, nog naar kijken*/}
+                    <InputFields
+                        label="Date of birth"
+                        type="text"
+                        name="date-of-birth-field"
+                        id="date-of-birth-field"
+                        register={register}
+                        validationRules={{
+                            required: {
+                                value: true,
+                                message: 'This field is required',
+                            }
                         }}
                         errors={errors}
                     />

@@ -14,7 +14,7 @@ function AuthContextProvider({children}) {
     // useffect zorgt ervoor dat er niet opnieuw gemount wordt bij refresh
     useEffect(() => {
         const token = localStorage.getItem('token')
-        // is er een token Is deze nog geldig?
+        // is er een token en is deze nog geldig?
 
         if(token) {
         // Zo ja? Haal informatie opnieuw op
@@ -88,7 +88,10 @@ function AuthContextProvider({children}) {
 
     const data = {
         isAuth: isAuth.isAuthenticated,
-        user: isAuth.user,
+        user: {
+            ...isAuth.user,
+            token: localStorage.getItem('token'),
+        },
         login: login,
         logout: logout
     }

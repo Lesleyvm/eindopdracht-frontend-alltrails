@@ -89,6 +89,7 @@ function Login() {
                     </div>
                 </form>
 
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
             <p>Don't have an account yet? Click <Link to="/signup">here</Link> to register.</p>
             <Link to="/contact"><h4>Help</h4></Link>
             </div>

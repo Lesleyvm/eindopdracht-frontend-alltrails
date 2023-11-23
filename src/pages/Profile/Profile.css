@@ -1,0 +1,25 @@
+.profile-section {
+    border: 1px solid #02735E;
+    background-color: #02735E;
+    color: mintcream;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 0;
+    width: 800px;
+}
+
+.profile-section p {
+    margin: 6px;
+}
+
+.profile.info {
+    display: flex;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}

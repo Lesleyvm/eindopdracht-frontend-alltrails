@@ -1,12 +1,17 @@
 import './Navigation.css'
 import Button from "../Button/Button.jsx";
 import logo from '../../assets/alltrails-logo.png';
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {useContext} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 
 function Navigation() {
     const {isAuth, logout} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    function handleProfileButtonClick () {
+        navigate('/profile');
+    }
 
     return (
         <nav className="navbar-container">
@@ -31,7 +36,8 @@ function Navigation() {
                             text="Log out"
                             clickHandler={logout}
                         />
-                    </li> :
+                    </li>
+                    :
                     <li className="navbar-item">
                         <NavLink to="/login">
                             <Button
@@ -39,6 +45,13 @@ function Navigation() {
                             />
                         </NavLink>
                     </li>}
+                { isAuth &&
+                <li>
+                    <Button
+                        text="My profile"
+                        clickHandler={handleProfileButtonClick}
+                    />
+                </li>}
             </ul>
         </nav>
     )
