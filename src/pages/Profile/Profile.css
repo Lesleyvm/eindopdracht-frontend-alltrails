@@ -7,6 +7,7 @@
     justify-content: space-evenly;
     padding: 20px 0;
     width: 800px;
+    margin-top: 150px;
 }
 
 .profile-section p {
@@ -22,4 +23,10 @@
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.favorite-icon {
+    width: 35px;
+    height: 35px;
+    margin: 0 30px;
 }

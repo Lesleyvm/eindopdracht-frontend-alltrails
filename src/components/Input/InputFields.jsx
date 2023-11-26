@@ -8,9 +8,8 @@ function InputFields({ label, name, type, id, register, validationRules, errors 
             <input
                 type={type}
                 id={id}
-                {...register(name, { validationRules })}
+                {...register(name, validationRules)}
             />
-            {/*misschien toch vervangen voor state, en regel handmatig conditioneel laten renderen*/}
             {errors[name] && <p className="error-message">{errors[name].message}</p>}
         </div>
     )

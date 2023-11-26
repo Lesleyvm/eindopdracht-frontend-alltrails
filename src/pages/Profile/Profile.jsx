@@ -4,7 +4,8 @@ import axios from "axios";
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 import './Profile.css'
-import Button from "../../components/Button/Button.jsx";
+import {Link} from "react-router-dom";
+import heart from '/src/assets/heart-56-1024x1024.png';
 
 function Profile() {
     const [profile, setProfile] = useState({});
@@ -88,6 +89,7 @@ function Profile() {
             </header>
             <main className="inner-container">
                 <div className="profile-section">
+                    {/*nog checken waarom mijn input component niet werkt*/}
                     <div>
                         {profilePicture ? <img src={profilePicture}
                                                alt="Profile"
@@ -102,6 +104,11 @@ function Profile() {
                         <h2>Welkom {profile.username}!</h2>
                         <p>Date of birth: {profile.info}</p>
                         <p>E-mail: {profile.email}</p>
+                        <Link to="/favorites"><p>My favorites</p></Link>
+                        <img src={heart}
+                             alt=""
+                             className="favorite-icon"
+                        />
                     </div>
                 </div>
             </main>

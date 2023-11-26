@@ -32,6 +32,16 @@ button:hover {
   border-bottom: none;
 }
 
+textarea {
+  font-family: inherit;
+  text-align: center;
+}
+
+select {
+  font-family: inherit;
+  text-align: center;
+}
+
 /*  font-synthesis: none;*/
 /*  text-rendering: optimizeLegibility;*/
 /*  -webkit-font-smoothing: antialiased;*/

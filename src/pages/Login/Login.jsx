@@ -31,7 +31,6 @@ function Login() {
 
     }
 
-
     return (
         <div id="login" className="outer-container">
             <span className="logo-wrapper secondary-logo">
@@ -90,7 +89,7 @@ function Login() {
                 </form>
 
                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-            <p>Don't have an account yet? Click <Link to="/signup">here</Link> to register.</p>
+            <p className="no-account">Don't have an account yet? Click <Link to="/signup">here</Link> to register.</p>
             <Link to="/contact"><h4>Help</h4></Link>
             </div>
 

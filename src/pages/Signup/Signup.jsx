@@ -73,20 +73,21 @@ function Signup() {
                     />
 
                     {/*werkt niet, nog naar kijken*/}
-                    <InputFields
-                        label="Date of birth"
-                        type="text"
-                        name="date-of-birth-field"
-                        id="date-of-birth-field"
-                        register={register}
-                        validationRules={{
-                            required: {
-                                value: true,
-                                message: 'This field is required',
-                            }
-                        }}
-                        errors={errors}
-                    />
+                    {/*<InputFields*/}
+                    {/*    label="Date of birth"*/}
+                    {/*    type="text"*/}
+                    {/*    name="date-of-birth-field"*/}
+                    {/*    id="date-of-birth-field"*/}
+                    {/*    register={register}*/}
+                    {/*    validationRules={{*/}
+                    {/*        required: {*/}
+                    {/*            value: true,*/}
+                    {/*            message: 'This field is required',*/}
+                    {/*        }*/}
+                    {/*    }}*/}
+                    {/*    errors={errors}*/}
+                    {/*/>*/}
+
                     <InputFields
                         label="E-mail"
                         type="text"

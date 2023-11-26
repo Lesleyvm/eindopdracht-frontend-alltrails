@@ -9,7 +9,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
+    padding: 0;
     /*border: 1px solid red;*/
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.success-message {
+    font-size: 18px;
+    margin-top: 100px;
 }
 
 
