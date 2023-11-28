@@ -1,0 +1,27 @@
+
+.filter-group {
+    display: flex;
+    width: 500px;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin-top: 10px;
+    /*border: 1px solid #014034;*/
+}
+
+.park-image {
+    width: 250px; /* Stel de gewenste breedte in */
+    height: 200px; /* Stel de gewenste hoogte in */
+    object-fit: cover;
+}
+
+.park-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    gap: 40px;
+    margin: 50px;
+    width: 1000px;
+    text-align: center;
+    /*border: 1px solid #014034;*/
+}

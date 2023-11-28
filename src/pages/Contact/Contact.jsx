@@ -58,6 +58,7 @@ function Contact() {
                                     Select a subject
                                 </option>
                                 <option>Technical issue</option>
+                                <option>Account</option>
                                 <option>Feedback</option>
                                 <option>Complaint</option>
                             </select>
@@ -87,7 +88,7 @@ function Contact() {
                             />
                             <InputFields
                                 label="E-mail"
-                                type="text"
+                                type="email"
                                 name="email-field"
                                 id="email-field"
                                 register={register}
@@ -133,7 +134,6 @@ function Contact() {
                     </div>
                 )}
             </main>
-
             <Footer/>
         </div>
     )

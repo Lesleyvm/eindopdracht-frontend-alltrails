@@ -14,7 +14,6 @@ function Signup() {
     const { login } = useContext(AuthContext);
 
     async function handleFormSubmit(data) {
-        // const [error, toggleError] = useState(false);
         const formData = {
             username: data['username-field'],
             email: data['email-field'],
@@ -88,9 +87,10 @@ function Signup() {
                     {/*    errors={errors}*/}
                     {/*/>*/}
 
+                    {/*notitie maken van automatische e-mail validatie React*/}
                     <InputFields
                         label="E-mail"
-                        type="text"
+                        type="email"
                         name="email-field"
                         id="email-field"
                         register={register}

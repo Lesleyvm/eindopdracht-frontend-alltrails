@@ -12,7 +12,7 @@ function Profile() {
     const [profilePicture, setProfilePicture] = useState('');
     const {user} = useContext(AuthContext);
 
-    // zorgt ervoor dat fetchprofile alleen aangeroepen wordt zodra er een token is
+    // zorgt ervoor dat fetchProfile alleen aangeroepen wordt zodra er een token is
     useEffect(() => {
         if (user.token) {
             void fetchProfile();
@@ -90,19 +90,18 @@ function Profile() {
             <main className="inner-container">
                 <div className="profile-section">
                     {/*nog checken waarom mijn input component niet werkt*/}
-                    <div>
-                        {profilePicture ? <img src={profilePicture}
+                        {profilePicture ?
+                            <img src={profilePicture}
                                                alt="Profile"
                                                className="profile-picture"
                             /> :
                             <input type="file"
                                    onChange={handleFileUpload}
                             />
-                        }
-                    </div>
+                    }
                     <div className="profile-info">
                         <h2>Welkom {profile.username}!</h2>
-                        <p>Date of birth: {profile.info}</p>
+                        {/*<p>Date of birth: {profile.info}</p>*/}
                         <p>E-mail: {profile.email}</p>
                         <Link to="/favorites"><p>My favorites</p></Link>
                         <img src={heart}
