@@ -12,6 +12,7 @@
     width: 250px; /* Stel de gewenste breedte in */
     height: 200px; /* Stel de gewenste hoogte in */
     object-fit: cover;
+    border-radius: 30px;
 }
 
 .park-list {
@@ -21,7 +22,22 @@
     row-gap: 40px;
     gap: 40px;
     margin: 50px;
-    width: 1000px;
+    width: 1200px;
     text-align: center;
     /*border: 1px solid #014034;*/
+}
+
+.park-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+}
+
+.buttons-explore button{
+    margin: 0 10px;
+}
+
+.buttons-explore {
+    margin-bottom: 40px;
 }
