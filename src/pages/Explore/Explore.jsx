@@ -5,21 +5,22 @@ import './Explore.css';
 import axios from "axios";
 import {useEffect, useState} from "react";
 import Button from "../../components/Button/Button.jsx";
+import {Link} from "react-router-dom";
 
 function Explore() {
-    const [park, setPark] = useState([]);
+    const [parks, setParks] = useState([]);
     const [start, setStart] = useState(0);
     const limit = 16;
 
     useEffect(() => {
-        void fetchPark();
+        void fetchParks();
     }, [start]);
 
-    async function fetchPark() {
+    async function fetchParks() {
 
         try {
             const response = await axios.get(`https://developer.nps.gov/api/v1/parks?limit=${limit}&start=${start}&api_key=hJ99K6po1RrlxynLK8tgQ4tzpR9quS7UQcOanoFX`)
-            setPark(response.data.data)
+            setParks(response.data.data)
             console.log(response.data.data);
 
         } catch (e) {
@@ -27,18 +28,20 @@ function Explore() {
         }
     }
 
-    const parkInfo = park.map((park) => (
+    const parkInfo = parks.map((parks) => (
         // gebruik gemaakt van checks om aanwezigheid van eigenschappen te controleren om fouten te voorkomen als er geen inhoud in zit.
-        <div key={park.id} className="park-item">
-            {park.images && park.images.length > 0 && (
-                <img src={park.images[0].url}
-                     alt={park.images[0].caption || ""}
+        <div key={parks.id} className="park-item">
+            {parks.images && parks.images.length > 0 && (
+                <img src={parks.images[0].url}
+                     alt={parks.images[0].caption || ""}
                      className="park-image"
                 />
             )}
             <p>Ratings(stars)</p>
-            <p className="park-title"><strong>{park.name}</strong></p>
-            <p>Place</p>
+            <Link to={`/parkinfo/${parks.parkCode}`}>
+                <p className="park-title"><strong>{parks.name}</strong></p>
+            </Link>
+            <p>{parks.states}</p>
         </div>
     ));
 
@@ -62,18 +65,18 @@ function Explore() {
                            placeholder="Let's find a destination"
                            className=""
                     />
-                        <Filters
-                            options={['1', '2', '3', '4', '5']}
-                            placeholder="Best rated"
-                        />
-                        <Filters
-                            options={['1', '2', '3', '4', '5']}
-                            placeholder="Activity"
-                        />
-                        <Filters
-                            options={['1', '2', '3', '4', '5']}
-                            placeholder="Fee"
-                        />
+                    <Filters
+                        options={['1', '2', '3', '4', '5']}
+                        placeholder="Best rated"
+                    />
+                    <Filters
+                        options={['1', '2', '3', '4', '5']}
+                        placeholder="Activity"
+                    />
+                    <Filters
+                        options={['1', '2', '3', '4', '5']}
+                        placeholder="Fee"
+                    />
                 </div>
 
                 <div className="park-list">

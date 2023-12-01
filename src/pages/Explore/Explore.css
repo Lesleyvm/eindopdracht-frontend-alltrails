@@ -13,6 +13,7 @@
     height: 200px; /* Stel de gewenste hoogte in */
     object-fit: cover;
     border-radius: 30px;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
 }
 
 .park-list {

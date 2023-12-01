@@ -1,0 +1,8 @@
+.park-info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    border: 1px solid #014034;
+    margin: 40px 0;
+}
