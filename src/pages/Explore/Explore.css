@@ -1,3 +1,27 @@
+.favorite-button {
+    /*background: none;*/
+    position: absolute;
+    top: 12px;
+    right: 1px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.heart-icon {
+    color: #b80202; /* Kleur van het hartpictogram */
+    font-size: 35px;
+}
+
+
+/*Toevoegen aan favorites?*/
+
 
 .filter-group {
     display: flex;
@@ -9,8 +33,8 @@
 }
 
 .park-image {
-    width: 250px; /* Stel de gewenste breedte in */
-    height: 200px; /* Stel de gewenste hoogte in */
+    width: 250px;
+    height: 200px;
     object-fit: cover;
     border-radius: 30px;
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);

@@ -1,11 +1,11 @@
-import Footer from "../../components/Footer/Footer.jsx";
-import Navigation from "../../components/Navigation/Navigation.jsx";
 import InputFields from "../../components/Input/InputFields.jsx";
 import {useForm} from "react-hook-form";
 import Button from "../../components/Button/Button.jsx";
 import './Contact.css';
 import {useState} from "react";
 import {Link} from "react-router-dom";
+import Navigation from "../../components/Navigation/Navigation.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
 
 function Contact() {
     const [success, toggleSuccess] = useState(false);
@@ -34,6 +34,7 @@ function Contact() {
             <header>
                 <Navigation/>
             </header>
+
             <main className="inner-container contact-section">
                 {success ? (
                     <div>
@@ -41,11 +42,10 @@ function Contact() {
                             2 working-days. Click <Link to="/">here</Link> to get back to exploring.</p>
                     </div>
                 ) : (
-                    <div>
+                    <div className="contactform-wrapper">
                         <h2>How can we help?</h2>
                         <form onSubmit={handleSubmit(handleFormSubmit)}
-                              className="contactform-wrapper">
-
+                              className="contactform">
                             <select defaultValue=""
                                     {...register('subject', {
                                         required: {
@@ -87,7 +87,7 @@ function Contact() {
                                 errors={errors}
                             />
                             <InputFields
-                                label="E-mail"
+                                label="E-mail adress"
                                 type="email"
                                 name="email-field"
                                 id="email-field"
@@ -100,12 +100,12 @@ function Contact() {
                                 }}
                                 errors={errors}
                             />
-                            {/*<label htmlFor="problem-description">Description</label>*/}
+                            <label htmlFor="problem-description">Description</label>
                             <textarea id="problem-description"
                                       cols="60"
                                       rows="20"
                                       name="description"
-                                      placeholder="Description of your problem.."
+                                      className="description-area"
                                       {...register('problem-description', {
                                           required: {
                                               value: true,

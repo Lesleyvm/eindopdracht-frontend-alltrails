@@ -1,0 +1,24 @@
+.favorites-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   text-align: center;
+    /*border: 1px solid #014034;*/
+}
+
+
+.favorite-button {
+    /* Standaard stijl voor de knop */
+}
+
+.favorite-button.active {
+    /* Stijl wanneer de knop actief (favoriet) is */
+}
+
+.heart-icon {
+    /* Standaard stijl voor het hartpictogram */
+}
+
+.heart-icon.favorite {
+    /* Stijl wanneer het hartpictogram favoriet is */
+}

@@ -5,20 +5,19 @@ import logo from "../../assets/alltrails-logo.png";
 import InputFields from "../../components/Input/InputFields.jsx";
 import Button from "../../components/Button/Button.jsx";
 import axios from "axios";
-import {useContext} from "react";
-import {AuthContext} from "../../context/AuthContext.jsx";
+import {useState} from "react";
+import Notifications from "../../components/Notifications/Notifications.jsx";
 
 function Signup() {
+    const [notification, setNotification] = useState(null);
     const {register, handleSubmit, formState: {errors}} = useForm();
     const navigate = useNavigate();
-    const { login } = useContext(AuthContext);
 
     async function handleFormSubmit(data) {
         const formData = {
             username: data['username-field'],
             email: data['email-field'],
             password: data['password-field'],
-            info: data['date-of-birth-field'],
             role: ['user']
         }
 
@@ -27,17 +26,26 @@ function Signup() {
             console.log(response);
             console.log("Account is succesvol aangemaakt!")
 
-            // hiermee logt de gebruiker in na succesvolle registratie
-            // werkt niet, nog naar kijken
-            login(response.data.accessToken);
-
-            navigate('/profile');
+            setNotification({ type: "success", message: "Account successfully created!" });
+            // timer ingesteld voor message voordat gebruiker doorgestuurd wordt
+            setTimeout(() => {
+                navigate('/login');
+            }, 2000);
 
 
         } catch (e) {
             console.error(e.response);
+
+            if (e.response && e.response.status === 400 && e.response.data && e.response.data.message === "This username is already in use") {
+
+                setNotification({ type: "error", message: "Username already in use. Please choose a different username." });
+
+            } else {
+                setNotification({ type: "error", message: "Oops! Something went wrong. Please try again." });
+            }
         }
     }
+
 
     return (
         <div id="signup" className="outer-container">
@@ -50,6 +58,14 @@ function Signup() {
 
             <div className="inner-container signup-section">
                 <h2>Start your adventure right here.</h2>
+
+                {notification && (
+                    <Notifications
+                        type={notification.type}
+                        message={notification.message}
+                        onClose={() => setNotification(null)}
+                    />
+                )}
 
                 <form onSubmit={handleSubmit(handleFormSubmit)}>
                     <InputFields
@@ -70,22 +86,6 @@ function Signup() {
                         }}
                         errors={errors}
                     />
-
-                    {/*werkt niet, nog naar kijken*/}
-                    {/*<InputFields*/}
-                    {/*    label="Date of birth"*/}
-                    {/*    type="text"*/}
-                    {/*    name="date-of-birth-field"*/}
-                    {/*    id="date-of-birth-field"*/}
-                    {/*    register={register}*/}
-                    {/*    validationRules={{*/}
-                    {/*        required: {*/}
-                    {/*            value: true,*/}
-                    {/*            message: 'This field is required',*/}
-                    {/*        }*/}
-                    {/*    }}*/}
-                    {/*    errors={errors}*/}
-                    {/*/>*/}
 
                     {/*notitie maken van automatische e-mail validatie React*/}
                     <InputFields

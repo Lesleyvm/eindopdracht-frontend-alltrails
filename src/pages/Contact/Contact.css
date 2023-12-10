@@ -1,11 +1,12 @@
-.contactform-wrapper {
+
+.contactform {
     display: flex;
     flex-direction: column;
     gap: 5px;
     /*border: 1px solid #02735E;*/
 }
 
-.contactform-wrapper select {
+.contactform select {
     border-radius: 50px;
     border: 1px solid darkgrey;
     padding: 6px;
@@ -19,4 +20,13 @@
     color: #014034;
     font-size: 30px;
     text-align: center;
+}
+
+.contact-logo img {
+    max-height: 50px;
+    margin: 45px 60px;
+}
+
+.description-area {
+    border-radius: 30px;
 }

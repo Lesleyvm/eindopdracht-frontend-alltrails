@@ -47,6 +47,10 @@ select {
   text-align: center;
 }
 
+ul {
+  list-style: none;
+}
+
 /*  font-synthesis: none;*/
 /*  text-rendering: optimizeLegibility;*/
 /*  -webkit-font-smoothing: antialiased;*/

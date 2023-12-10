@@ -1,13 +1,18 @@
 import Navigation from "../../components/Navigation/Navigation.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import axios from "axios";
-import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useContext, useEffect, useState} from "react";
+import {Link, useParams} from "react-router-dom";
 import './Parkinfo.css'
+import Button from "../../components/Button/Button.jsx";
+import {IoMdHeart} from "react-icons/io";
+import {FavoritesContext} from "../../context/FavoritesContext.jsx";
 
 function Parkinfo() {
     const [park, setPark] = useState([]);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const {parkCode} = useParams();
+    const {toggleFavorite} = useContext(FavoritesContext);
 
     useEffect(() => {
         void fetchPark();
@@ -27,21 +32,69 @@ function Parkinfo() {
         }
     }
 
+    // functies gemaakt om door de beschikbare afbeeldingen te kunnen bladeren
+    const nextImage = () => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % park.images.length);
+    };
+
+    const prevImage = () => {
+        setCurrentImageIndex(
+            (prevIndex) => (prevIndex - 1 + park.images.length) % park.images.length
+        );
+    };
+
+
     return (
         <>
             <header>
                 <Navigation/>
             </header>
             <main className="inner-container">
-                <div className="park-info-item">
-                    {park.images && park.images.length > 0 && (
-                        <img src={park.images[0].url}
-                             alt={park.images[0].caption || ""}
-                             className="park-image"
-                        />
-                    )}
-                    <h2>{park.name}</h2>
-                    <p>{park.description}</p>
+                <div className="parkinfo-container">
+                    <div className="parkinfo-item">
+                        <h2>{park.name}</h2>
+                        {park.images && park.images.length > 0 && (
+                            <>
+                                <div className="image-container">
+                                <img
+                                    src={park.images[currentImageIndex].url}
+                                    alt={park.images[currentImageIndex].caption || ""}
+                                    className="park-image parkinfo-image"
+                                />
+                                <Button
+                                    text={<IoMdHeart className="heart-icon"/>}
+                                    className="favorite-button"
+                                    clickHandler={() => toggleFavorite(park)}
+                                />
+                                </div>
+                                <div>
+                                    <Button
+                                        text="<<"
+                                        clickHandler={prevImage}
+                                    />
+                                    <Button
+                                        text=">>"
+                                        clickHandler={nextImage}
+                                    />
+                                </div>
+                            </>
+                        )}
+                        <div className="comment-section">
+                            <label htmlFor="comment-field">Comment</label>
+                            <textarea name="" id="comment-field" cols="60" rows="7"></textarea>
+                            <Button
+                                text="Place"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <p>{park.description}</p>
+                        <h4>What are the weather conditions like?</h4>
+                        <p>{park.weatherInfo}</p>
+                        <h4>How to get there?</h4>
+                        <p>{park.directionsInfo}</p>
+                        <h5>Not finished exploring yet? Click <Link to="/">here</Link> to return</h5>
+                    </div>
                 </div>
             </main>
             <Footer/>
