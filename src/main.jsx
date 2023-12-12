@@ -9,11 +9,11 @@ import FavoritesProvider from "./context/FavoritesContext.jsx";
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <Router>
-            <FavoritesProvider>
-                <AuthContextProvider>
+            <AuthContextProvider>
+                <FavoritesProvider>
                     <App/>
-                </AuthContextProvider>
-            </FavoritesProvider>
+                </FavoritesProvider>
+            </AuthContextProvider>
         </Router>
     </React.StrictMode>
 )

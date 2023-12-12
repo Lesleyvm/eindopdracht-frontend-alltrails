@@ -9,7 +9,6 @@ import {Link} from "react-router-dom";
 import { IoMdHeart } from "react-icons/io";
 import {FavoritesContext} from "../../context/FavoritesContext.jsx";
 
-
 function Explore() {
     const [parks, setParks] = useState([]);
     const [start, setStart] = useState(0);

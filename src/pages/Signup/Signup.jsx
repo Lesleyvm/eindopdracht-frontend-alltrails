@@ -30,15 +30,15 @@ function Signup() {
             // timer ingesteld voor message voordat gebruiker doorgestuurd wordt
             setTimeout(() => {
                 navigate('/login');
-            }, 2000);
+            }, 3000);
 
 
         } catch (e) {
             console.error(e.response);
 
-            if (e.response && e.response.status === 400 && e.response.data && e.response.data.message === "This username is already in use") {
+            if (e.response && e.response.status === 400) {
 
-                setNotification({ type: "error", message: "Username already in use. Please choose a different username." });
+                setNotification({ type: "error", message: "Username or e-mail already in use. Please choose a different combination." });
 
             } else {
                 setNotification({ type: "error", message: "Oops! Something went wrong. Please try again." });
@@ -56,7 +56,7 @@ function Signup() {
                 </Link>
             </span>
 
-            <div className="inner-container signup-section">
+            <main className="inner-container signup-section">
                 <h2>Start your adventure right here.</h2>
 
                 {notification && (
@@ -128,7 +128,7 @@ function Signup() {
                     </div>
                 </form>
                 <Link to="/contact"><h4>Help</h4></Link>
-            </div>
+            </main>
         </div>
     )
 }

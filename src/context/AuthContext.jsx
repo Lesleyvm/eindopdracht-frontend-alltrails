@@ -41,6 +41,7 @@ function AuthContextProvider({children}) {
         console.log(userinfo);
         // const userId = userinfo.sub; // hier snap ik het punt even niet meer van?
 
+
         try {
             const response = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user`, {
                 headers: {
@@ -63,19 +64,13 @@ function AuthContextProvider({children}) {
 
         } catch (e) {
             console.error(e);
-            if (e.response && e.response.status === 401) {
-                // Toon melding voor ongeautoriseerde toegang
+
+                // nog niet werkend gekregen
                 setNotification({
                     type: "error",
-                    message: "User not authorized. Please sign up first.",
+                    message: "Please use a valid username or password.",
                 });
-            } else {
-                // Toon algemene foutmelding voor andere fouten
-                setNotification({
-                    type: "error",
-                    message: "Oops! Something went wrong. Please try again later.",
-                });
-            }
+            console.log(notification);
 
             toggleIsAuth({
                 ...isAuth,
@@ -86,6 +81,7 @@ function AuthContextProvider({children}) {
         navigate('/profile');
         console.log("Gebruiker is ingelogd!");
     }
+
 
     function logout() {
         //  hiermee verwijder ik het token uit de LS

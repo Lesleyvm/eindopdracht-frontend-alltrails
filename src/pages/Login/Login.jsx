@@ -12,7 +12,6 @@ function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { login } = useContext(AuthContext);
 
-
     async function handleFormSubmit(data) {
         const formData = {
             username: data['username-field'],
