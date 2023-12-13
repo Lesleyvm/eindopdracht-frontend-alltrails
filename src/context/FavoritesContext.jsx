@@ -35,7 +35,6 @@ function FavoritesProvider({ children }) {
                 if (!isAlreadyFavorite) {
                     setNotification({type: "success", message: "Park is added to your favorites!"});
 
-
                     return [...prevFavorites, park];
                 }
 
@@ -43,7 +42,6 @@ function FavoritesProvider({ children }) {
                 return prevFavorites;
             });
         }
-
 
     function removeFromFavorites(parkCode) {
         setFavorites((prevFavorites) =>

@@ -2,11 +2,8 @@ import {createContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {jwtDecode} from "jwt-decode";
-import Notifications from "../components/Notifications/Notifications.jsx";
-
 export const AuthContext = createContext({})
 function AuthContextProvider({children}) {
-    const [notification, setNotification] = useState(null);
     const [isAuth, toggleIsAuth] = useState({
         isAuthenticated: false,
         user: null,
@@ -62,24 +59,17 @@ function AuthContextProvider({children}) {
                 status: 'done',
             });
 
+            navigate('/profile');
+            console.log("Gebruiker is ingelogd!");
+
         } catch (e) {
             console.error(e);
-
-                // nog niet werkend gekregen
-                setNotification({
-                    type: "error",
-                    message: "Please use a valid username or password.",
-                });
-            console.log(notification);
 
             toggleIsAuth({
                 ...isAuth,
                 status: 'done'
             })
         }
-
-        navigate('/profile');
-        console.log("Gebruiker is ingelogd!");
     }
 
 
@@ -110,13 +100,6 @@ function AuthContextProvider({children}) {
 
     return (
         <AuthContext.Provider value={data}>
-            {notification && (
-                <Notifications
-                    type={notification.type}
-                    message={notification.message}
-                    onClose={() => setNotification(null)}
-                />
-            )}
             {isAuth.status === 'done' ? children : <p>Loading..</p>}
         </AuthContext.Provider>
     )

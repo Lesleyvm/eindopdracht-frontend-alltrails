@@ -3,16 +3,13 @@ import Footer from "../../components/Footer/Footer.jsx";
 import Filters from "../../components/Filters/Filters.jsx";
 import './Explore.css';
 import axios from "axios";
-import {useContext, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import Button from "../../components/Button/Button.jsx";
-import {Link} from "react-router-dom";
-import { IoMdHeart } from "react-icons/io";
-import {FavoritesContext} from "../../context/FavoritesContext.jsx";
+import ParkDetail from "../../components/ParkDetail/ParkDetail.jsx";
 
 function Explore() {
     const [parks, setParks] = useState([]);
     const [start, setStart] = useState(0);
-    const { toggleFavorite } = useContext(FavoritesContext);
     const limit = 16;
 
     useEffect(() => {
@@ -31,31 +28,7 @@ function Explore() {
         }
     }
 
-    const parkInfo = parks.map((parks) => (
-        // gebruik gemaakt van checks om aanwezigheid van eigenschappen te controleren om fouten te voorkomen als er geen inhoud in zit.
-        <div key={parks.id} className="park-item">
-            <div className="image-container">
-            {parks.images && parks.images.length > 0 && (
-                <img src={parks.images[0].url}
-                     alt={parks.images[0].caption || ""}
-                     className="park-image"
-                />
-            )}
-
-            <Button
-            text={<IoMdHeart className="heart-icon"/>}
-            className="favorite-button"
-            clickHandler={() => toggleFavorite(parks)}
-            />
-            </div>
-            <p>Ratings(stars)</p>
-            <Link to={`/parkinfo/${parks.parkCode}`}>
-                <p className="park-title"><strong>{parks.name}</strong></p>
-            </Link>
-            <p>{parks.states}</p>
-        </div>
-    ));
-
+    // functie gemaakt om alle parken te kunnen bladeren
     const handleNextClick = () => {
         setStart(start + limit);
     };
@@ -91,8 +64,11 @@ function Explore() {
                 </div>
 
                 <div className="park-list">
-                    {parkInfo}
+                    {parks.map((park) => (
+                        <ParkDetail key={park.parkCode} park={park} />
+                    ))}
                 </div>
+
                 <div className="buttons-explore">
                     <Button
                         text="Previous"
@@ -103,6 +79,7 @@ function Explore() {
                         clickHandler={handleNextClick}
                     />
                 </div>
+
             </main>
             <Footer/>
         </>

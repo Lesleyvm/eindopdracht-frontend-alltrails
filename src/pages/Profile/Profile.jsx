@@ -89,21 +89,43 @@ function Profile() {
             </header>
             <main className="inner-container">
                 <div className="profile-section">
-                    {/*nog checken waarom mijn input component niet werkt*/}
-                        {profilePicture ?
+
+                    {/*input component niet mogelijk vanwege register voor hookform*/}
+
+                    {profilePicture ?
+                        <div className="picture-editing">
                             <img src={profilePicture}
-                                               alt="Profile"
-                                               className="profile-picture"
-                            /> :
-                            <input type="file"
-                                   onChange={handleFileUpload}
+                                 alt="Profile"
+                                 className="profile-picture"
                             />
+                            <label htmlFor="file-input"
+                                   className="input-profile-picture"
+                            >
+                                Edit picture
+                                <input type="file"
+                                       id="file-input"
+                                       style={{display: 'none'}}
+                                       onChange={handleFileUpload}
+                                />
+                            </label>
+
+                        </div>
+                        :
+                        <label htmlFor="file-input"
+                               className="input-profile-picture"
+                        >
+                            Add picture
+                        <input type="file"
+                               id="file-input"
+                               style={{display: 'none'}}
+                               onChange={handleFileUpload}
+                        />
+                        </label>
                     }
                     <div className="profile-info">
                         <h2>Welkom {profile.username}!</h2>
-                        {/*<p>Date of birth: {profile.info}</p>*/}
                         <p>E-mail: {profile.email}</p>
-                        <Link to="/favorites"><p>My favorites</p></Link>
+                        <Link to="/favorites"><p> <strong>My favorites</strong></p></Link>
                         <img src={heart}
                              alt=""
                              className="favorite-icon"

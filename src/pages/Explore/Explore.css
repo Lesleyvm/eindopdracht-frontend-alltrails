@@ -1,43 +1,11 @@
-.favorite-button {
-    /*background: none;*/
-    position: absolute;
-    top: 12px;
-    right: 1px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    outline: none;
-}
-
-.image-container {
-    position: relative;
-    display: inline-block;
-}
-
-.heart-icon {
-    color: #b80202; /* Kleur van het hartpictogram */
-    font-size: 35px;
-}
-
-
-/*Toevoegen aan favorites?*/
-
 
 .filter-group {
     display: flex;
-    width: 500px;
+    width: 700px;
     justify-content: space-evenly;
     gap: 10px;
     margin-top: 10px;
     /*border: 1px solid #014034;*/
-}
-
-.park-image {
-    width: 250px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 30px;
-    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
 }
 
 .park-list {
@@ -47,16 +15,9 @@
     row-gap: 40px;
     gap: 40px;
     margin: 50px;
-    width: 1200px;
+    max-width: 1200px;
     text-align: center;
     /*border: 1px solid #014034;*/
-}
-
-.park-title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 250px;
 }
 
 .buttons-explore button{

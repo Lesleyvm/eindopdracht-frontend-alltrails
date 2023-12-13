@@ -6,7 +6,7 @@
 }
 
 .signup-section {
-    width: 1000px;
+    max-width: 1000px;
     margin-top: 80px;
 }
 

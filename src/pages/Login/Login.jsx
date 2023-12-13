@@ -5,10 +5,12 @@ import {Link} from "react-router-dom";
 import InputFields from "../../components/Input/InputFields.jsx";
 import {useForm} from 'react-hook-form';
 import axios from "axios";
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
+import Notifications from "../../components/Notifications/Notifications.jsx";
 
 function Login() {
+    const [notification, setNotification] = useState(null);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { login } = useContext(AuthContext);
 
@@ -26,6 +28,13 @@ function Login() {
 
         } catch (e) {
             console.error(e);
+
+            setNotification({
+                type: "error",
+                message: "Please use a valid username or password.",
+            });
+            console.log(notification);
+
         }
 
     }
@@ -38,9 +47,18 @@ function Login() {
                 </Link>
             </span>
 
+            {notification && (
+                <Notifications
+                    type={notification.type}
+                    message={notification.message}
+                    onClose={() => setNotification(null)}
+                />
+            )}
+
             <div className="inner-container login-section">
                 <h2>Welcome back adventurer.</h2>
                 <h2>Log in and start exploring.</h2>
+
 
                 <form onSubmit={handleSubmit(handleFormSubmit)}>
                     <InputFields
