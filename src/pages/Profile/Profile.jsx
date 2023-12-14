@@ -5,7 +5,7 @@ import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 import './Profile.css'
 import {Link} from "react-router-dom";
-import heart from '/src/assets/heart-56-1024x1024.png';
+import EditProfile from "../../components/EditProfile/EditProfile.jsx";
 
 function Profile() {
     const [profile, setProfile] = useState({});
@@ -88,7 +88,7 @@ function Profile() {
                 <Navigation/>
             </header>
             <main className="inner-container">
-                <div className="profile-section">
+                <section className="profile-section">
 
                     {/*input component niet mogelijk vanwege register voor hookform*/}
 
@@ -99,7 +99,7 @@ function Profile() {
                                  className="profile-picture"
                             />
                             <label htmlFor="file-input"
-                                   className="input-profile-picture"
+                                   className="profile-buttons"
                             >
                                 Edit picture
                                 <input type="file"
@@ -112,7 +112,7 @@ function Profile() {
                         </div>
                         :
                         <label htmlFor="file-input"
-                               className="input-profile-picture"
+                               className="profile-buttons"
                         >
                             Add picture
                         <input type="file"
@@ -124,14 +124,14 @@ function Profile() {
                     }
                     <div className="profile-info">
                         <h2>Welkom {profile.username}!</h2>
-                        <p>E-mail: {profile.email}</p>
+                        <strong><p>E-mail:</p></strong>
+                        <p>{profile.email}</p>
                         <Link to="/favorites"><p> <strong>My favorites</strong></p></Link>
-                        <img src={heart}
-                             alt=""
-                             className="favorite-icon"
-                        />
                     </div>
-                </div>
+                    <div className="edit-profile">
+                        <EditProfile/>
+                    </div>
+                </section>
             </main>
             <Footer/>
         </div>

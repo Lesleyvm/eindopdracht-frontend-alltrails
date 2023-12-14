@@ -3,22 +3,34 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    max-width: 1200px;
     /*border: 1px solid #014034;*/
+}
+
+.favorites-item {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.default-favorite {
+    color: #E6E6FA;
+    font-size: 32px;
+}
+
+.active-favorite {
+    color: #DC143C;
+    font-size: 32px;
 }
 
 
 .favorite-button {
-    /* Standaard stijl voor de knop */
-}
-
-.favorite-button.active {
-    /* Stijl wanneer de knop actief (favoriet) is */
-}
-
-.heart-icon {
-    /* Standaard stijl voor het hartpictogram */
-}
-
-.heart-icon.favorite {
-    /* Stijl wanneer het hartpictogram favoriet is */
+    /*background: none;*/
+    position: absolute;
+    top: 12px;
+    right: 1px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
 }

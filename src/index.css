@@ -37,12 +37,7 @@ button:hover {
   border-bottom: none;
 }
 
-textarea {
-  font-family: inherit;
-  text-align: center;
-}
-
-select {
+textarea, select, input {
   font-family: inherit;
   text-align: center;
 }

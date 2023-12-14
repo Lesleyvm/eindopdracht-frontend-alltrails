@@ -10,7 +10,6 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    /*border: 1px solid yellow;*/
 }
 
 .navbar-menu {
@@ -20,7 +19,6 @@
     flex-direction: row;
     justify-content: space-between;
     margin: 0 25px;
-    /*border: 1px solid yellow;*/
 }
 
 .logo-wrapper img {

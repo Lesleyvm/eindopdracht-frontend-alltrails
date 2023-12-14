@@ -10,26 +10,26 @@ function Favorites() {
     const favorites = getFavorites();
 
     return (
-        <>
+        <div className="outer-container">
             <header>
                 <Navigation/>
             </header>
             <main className="inner-container">
-                <div className="favorites-container">
+                <section className="favorites-container">
                     <h2>Your Favorite Parks</h2>
                     {favorites.length === 0 ? (
                         <p>No favorite parks yet.</p>
                     ) : (
-                        <ul className="test">
+                        <ul className="favorites-item">
                             {favorites.map((favoritePark) => (
                                 <ParkDetail key={favoritePark.parkCode} park={favoritePark} />
                             ))}
                         </ul>
                     )}
-                </div>
+                </section>
             </main>
             <Footer/>
-        </>
+        </div>
     )
 }
 

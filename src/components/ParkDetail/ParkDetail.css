@@ -1,25 +1,8 @@
-.favorite-button {
-    /*background: none;*/
-    position: absolute;
-    top: 12px;
-    right: 1px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    outline: none;
-}
 
 .image-container {
     position: relative;
     display: inline-block;
 }
-
-.heart-icon {
-    color: #b80202; /* Kleur van het hartpictogram */
-    font-size: 35px;
-}
-
-/*///////////// Favorites? ////////////////////*/
 
 .park-image {
     width: 250px;

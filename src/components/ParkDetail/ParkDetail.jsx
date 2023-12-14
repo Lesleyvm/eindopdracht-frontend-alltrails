@@ -3,9 +3,15 @@ import {FavoritesContext} from "../../context/FavoritesContext.jsx";
 import {useContext} from "react";
 import {Link} from "react-router-dom";
 import Button from "../Button/Button.jsx";
-import {IoMdHeart} from "react-icons/io";
+import { FaHeartCirclePlus } from "react-icons/fa6";
+import { FaHeartCircleMinus } from "react-icons/fa6";
+
 function ParkDetail ({park}) {
-    const { toggleFavorite } = useContext(FavoritesContext);
+    const { toggleFavorite, getFavorites } = useContext(FavoritesContext);
+    const favorites = getFavorites();
+    const isFavorite = favorites.some(
+        (favoritePark) => favoritePark.parkCode === park.parkCode
+    );
 
     return (
         <div key={park.id} className="park-item">
@@ -17,13 +23,11 @@ function ParkDetail ({park}) {
                         className="park-image"
                     />
                 )}
-
                 <Button
-                    text={<IoMdHeart className="heart-icon" />}
+                    text={isFavorite ? <FaHeartCircleMinus className="active-favorite" /> : <FaHeartCirclePlus className="default-favorite " />}
                     className="favorite-button"
                     clickHandler={() => toggleFavorite(park)}
                 />
-
             </div>
             <p>Ratings(stars)</p>
             <Link to={`/parkinfo/${park.parkCode}`}>

@@ -16,3 +16,14 @@
     border-color: #ebccd1;
     color: #a94442;
 }
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.success-message {
+    font-size: 18px;
+    margin-top: 100px;
+}

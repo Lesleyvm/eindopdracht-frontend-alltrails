@@ -1,7 +1,7 @@
 import './InputFields.css'
-function InputFields({ label, name, type, id, text, changeHandler, register, validationRules, errors }) {
+function InputFields({ label, name, type, id, text, changeHandler, register, validationRules, errors}) {
     return (
-        <div className="form-group">
+        <div className='form-group'>
             <label htmlFor={id}>
                 {label}
             </label>

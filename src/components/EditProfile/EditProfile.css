@@ -1,0 +1,11 @@
+.edit-profile input {
+    border: none;
+}
+
+.edit-profile label {
+    font-size: 13px;
+}
+
+.edit-profile {
+    max-width: 300px;
+}
