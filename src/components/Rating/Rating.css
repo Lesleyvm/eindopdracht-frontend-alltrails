@@ -1,0 +1,11 @@
+.rating-container {
+    margin-bottom: 10px;
+}
+
+.star-active {
+    color: #014034;
+}
+
+.star {
+    color: #038C73;
+}

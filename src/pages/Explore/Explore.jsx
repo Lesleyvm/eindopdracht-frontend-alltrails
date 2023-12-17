@@ -46,7 +46,7 @@ function Explore() {
             <main className="inner-container">
                 <div className="filter-group">
                     <input type="text"
-                           placeholder="Let's find a destination"
+                           placeholder="Where are we going?"
                            className=""
                     />
                     <Filters
@@ -65,7 +65,7 @@ function Explore() {
 
                 <div className="park-list">
                     {parks.map((park) => (
-                        <ParkDetail key={park.parkCode} park={park} />
+                        <ParkDetail key={park.parkCode} park={park}/>
                     ))}
                 </div>
 

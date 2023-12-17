@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import Button from "../Button/Button.jsx";
 import { FaHeartCirclePlus } from "react-icons/fa6";
 import { FaHeartCircleMinus } from "react-icons/fa6";
+import Rating from "../Rating/Rating.jsx";
 
 function ParkDetail ({park}) {
     const { toggleFavorite, getFavorites } = useContext(FavoritesContext);
@@ -12,6 +13,8 @@ function ParkDetail ({park}) {
     const isFavorite = favorites.some(
         (favoritePark) => favoritePark.parkCode === park.parkCode
     );
+    const savedRating = localStorage.getItem(`rating_${park.parkCode}`);
+    const rating = savedRating !== null ? parseInt(savedRating, 10) : 0;
 
     return (
         <div key={park.id} className="park-item">
@@ -29,13 +32,13 @@ function ParkDetail ({park}) {
                     clickHandler={() => toggleFavorite(park)}
                 />
             </div>
-            <p>Ratings(stars)</p>
             <Link to={`/parkinfo/${park.parkCode}`}>
                 <p className="park-title">
                     <strong>{park.name}</strong>
                 </p>
+                <p>{park.states}</p>
+                <Rating rating={rating}/>
             </Link>
-            <p>{park.states}</p>
         </div>
     );
 }

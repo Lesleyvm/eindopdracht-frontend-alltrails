@@ -14,7 +14,17 @@
     margin: 50px;
 }
 
+.parkinfo-item h2 {
+    margin: 0;
+}
+
 .parkinfo-image {
     width: 450px;
     height: 350px;
+}
+
+.delete-button {
+    background-color: transparent;
+    color: #014034;
+    font-size: 15px;
 }
