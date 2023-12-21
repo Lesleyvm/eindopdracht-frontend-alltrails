@@ -18,3 +18,10 @@
     text-overflow: ellipsis;
     max-width: 250px;
 }
+
+.park-states {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+}

@@ -24,8 +24,7 @@ function Parkinfo() {
     const isFavorite = getFavorites().some(
         (favoritePark) => favoritePark.parkCode === park.parkCode
     );
-    const authContext = useContext(AuthContext);
-    const { isAuth, user} = authContext;
+    const { isAuth, user } = useContext(AuthContext);
     const {register, reset,handleSubmit, formState: {errors}} = useForm();
 
     useEffect(() => {
@@ -64,6 +63,15 @@ function Parkinfo() {
 
     // functie gemaakt om rating toe te voegen
     function handleRate(value) {
+        // Controleer of de gebruiker is ingelogd
+        if (!isAuth) {
+            setNotification({
+                type: "error",
+                message: "Please log in first to rate the park.",
+            });
+            return;
+        }
+        // Plaats de rating als de gebruiker is ingelogd
         setRating(value);
         localStorage.setItem(`rating_${parkCode}`, value);
     }

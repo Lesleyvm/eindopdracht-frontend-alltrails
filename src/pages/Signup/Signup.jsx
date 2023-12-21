@@ -38,10 +38,16 @@ function Signup() {
 
             if (e.response && e.response.status === 400) {
 
-                setNotification({ type: "error", message: "Username or e-mail already in use. Please choose a different combination." });
+                setNotification({
+                    type: "error",
+                    message: "Username or e-mail already in use. Please choose a different combination."
+                });
 
             } else {
-                setNotification({ type: "error", message: "Oops! Something went wrong. Please try again." });
+                setNotification({
+                    type: "error",
+                    message: "Oops! Something went wrong. Please try again."
+                });
             }
         }
     }

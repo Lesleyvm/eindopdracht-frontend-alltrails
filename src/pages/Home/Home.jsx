@@ -1,6 +1,7 @@
 import './Home.css'
 import Navigation from "../../components/Navigation/Navigation.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
+import Searchbar from "../../components/Searchbar/Searchbar.jsx";
 
 function Home() {
 
@@ -11,12 +12,13 @@ function Home() {
             </header>
             <main>
                 <h1>Discover the outdoors within you</h1>
-                <input type="text"
-                       placeholder="Start exploring.. where are we going?"
-                       className="search-bar"
+                <Searchbar
+                    placeholder="Let's start exploring.. Where are we going?"
+                    className="home-input"
+                    classNameDiv="home-wrapper"
                 />
                 <div>
-                {/*    hier komt top rated*/}
+                    {/*    hier komt top rated*/}
                 </div>
             </main>
             <Footer/>

@@ -1,15 +1,17 @@
-import {createContext, useState, useEffect} from "react";
+import {createContext, useState, useEffect, useContext} from "react";
 import Notifications from "../components/Notifications/Notifications.jsx";
+import {AuthContext} from "./AuthContext.jsx";
 export const FavoritesContext = createContext();
 function FavoritesProvider({ children }) {
     const [favorites, setFavorites] = useState([]);
     const [notification, setNotification] = useState(null);
+    const { isAuth } = useContext(AuthContext);
 
     useEffect(() => {
         //  Haal de opgeslagen favorieten op bij het laden van de context
         const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
         setFavorites(storedFavorites);
-    }, []); // Lege afhankelijkheidsarray, wordt alleen uitgevoerd bij de eerste render
+    }, []);
 
     useEffect(() => {
         // Wanneer de favorieten wijzigen, update de lokale opslag
@@ -18,12 +20,13 @@ function FavoritesProvider({ children }) {
 
     function addToFavorites(park) {
 
-        // helaas niet werkend gekregen!
-        // if (isAuth) {
-        //     console.error("User not authenticated");
-        //     setNotification({type: "error", message: "Please log in to add parks to favorites."});
-        //
-        // } else {
+        if (!isAuth) {
+            setNotification({
+                type: "error",
+                message: "Please log in first to add park to your favorites."
+            });
+            return;
+        }
 
             setFavorites((prevFavorites) => {
                 // Controleer of het park al in de favorietenlijst staat
@@ -33,7 +36,10 @@ function FavoritesProvider({ children }) {
 
                 // Voeg het park toe aan de lijst als het er nog niet in staat
                 if (!isAlreadyFavorite) {
-                    setNotification({type: "success", message: "Park is added to your favorites!"});
+                    setNotification({
+                        type: "success",
+                        message: "Park is added to your favorites!"
+                    });
 
                     return [...prevFavorites, park];
                 }
@@ -47,7 +53,10 @@ function FavoritesProvider({ children }) {
         setFavorites((prevFavorites) =>
             prevFavorites.filter((favoritePark) => favoritePark.parkCode !== parkCode)
         );
-        setNotification({type: "success", message: "Park is deleted from your favorites!"});
+        setNotification({
+            type: "success",
+            message: "Park is deleted from your favorites!"
+        });
     }
 
     function toggleFavorite(park) {

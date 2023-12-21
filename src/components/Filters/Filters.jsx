@@ -1,10 +1,20 @@
+import { useState } from 'react';
+import './Filters.css'
 
-function Filters({options, value, onChange, placeholder}) {
-    return(
+function Filters({ options, selectedValue, onChange, placeholder, classname }) {
+    const [value, setValue] = useState(selectedValue || '');
+
+    const handleSelect = (selected) => {
+        setValue(selected);
+        onChange(selected);
+    };
+
+    return (
         <div>
             <select
-                value={value || ''}
-                onChange={(e) => onChange(e.target.value)}
+                className={classname}
+                value={value}
+                onChange={(e) => handleSelect(e.target.value)}
             >
                 {placeholder && (
                     <option value="" disabled hidden>
@@ -18,7 +28,7 @@ function Filters({options, value, onChange, placeholder}) {
                 ))}
             </select>
         </div>
-    )
+    );
 }
 
 export default Filters;

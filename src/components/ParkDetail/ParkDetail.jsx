@@ -36,7 +36,7 @@ function ParkDetail ({park}) {
                 <p className="park-title">
                     <strong>{park.name}</strong>
                 </p>
-                <p>{park.states}</p>
+                <p className="park-states">{park.states}</p>
                 <Rating rating={rating}/>
             </Link>
         </div>

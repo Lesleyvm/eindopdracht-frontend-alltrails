@@ -6,26 +6,12 @@
 }
 
 
-/*kan wellicht bij input*/
-.search-bar {
-    border-radius: 25px;
-    border: none;
-    text-align: center;
-    width: 35%;
-    background-color: white;
-    color: darkgrey;
-    font-weight: 300;
-    font-size: 15px;
-    padding: 12px;
-}
-
-
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-grow: 1; /* Laat main groeien om de resterende ruimte in te nemen */
-    padding-top: 270px;
+    flex-grow: 1;
+    padding-top: 350px;
 }
 
 h1 {
