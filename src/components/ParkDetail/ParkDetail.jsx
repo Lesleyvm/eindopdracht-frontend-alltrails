@@ -3,12 +3,12 @@ import {FavoritesContext} from "../../context/FavoritesContext.jsx";
 import {useContext} from "react";
 import {Link} from "react-router-dom";
 import Button from "../Button/Button.jsx";
-import { FaHeartCirclePlus } from "react-icons/fa6";
-import { FaHeartCircleMinus } from "react-icons/fa6";
+import {FaHeartCirclePlus} from "react-icons/fa6";
+import {FaHeartCircleMinus} from "react-icons/fa6";
 import Rating from "../Rating/Rating.jsx";
 
-function ParkDetail ({park}) {
-    const { toggleFavorite, getFavorites } = useContext(FavoritesContext);
+function ParkDetail({park}) {
+    const {toggleFavorite, getFavorites} = useContext(FavoritesContext);
     const favorites = getFavorites();
     const isFavorite = favorites.some(
         (favoritePark) => favoritePark.parkCode === park.parkCode
@@ -27,18 +27,21 @@ function ParkDetail ({park}) {
                     />
                 )}
                 <Button
-                    text={isFavorite ? <FaHeartCircleMinus className="active-favorite" /> : <FaHeartCirclePlus className="default-favorite " />}
+                    text={isFavorite ? <FaHeartCircleMinus className="active-favorite"/> :
+                        <FaHeartCirclePlus className="default-favorite "/>}
                     className="favorite-button"
                     clickHandler={() => toggleFavorite(park)}
                 />
             </div>
-            <Link to={`/parkinfo/${park.parkCode}`}>
-                <p className="park-title">
-                    <strong>{park.name}</strong>
-                </p>
-                <p className="park-states">{park.states}</p>
-                <Rating rating={rating}/>
-            </Link>
+            <div className="park-description">
+                <Link to={`/parkinfo/${park.parkCode}`}>
+                    <p className="park-title">
+                        <strong>{park.name}</strong>
+                    </p>
+                    <p className="park-states">{park.states}</p>
+                    <Rating rating={rating}/>
+                </Link>
+            </div>
         </div>
     );
 }

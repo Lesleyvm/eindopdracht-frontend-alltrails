@@ -2,9 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    max-width: 1200px;
-    /*border: 1px solid #014034;*/
-    margin: 40px 0;
+    max-width: 1300px;
 }
 
 .parkinfo-item {
@@ -14,17 +12,38 @@
     margin: 50px;
 }
 
-.parkinfo-item h2 {
-    margin: 0;
-}
-
 .parkinfo-image {
     width: 450px;
     height: 350px;
+}
+
+.parkinfo-details h4, h5, p{
+    margin: 14px 0;
+}
+
+
+.activity-list {
+    font-size: 12px;
+    list-style: circle;
+    columns: 4;
+    column-gap: 40px;
+}
+
+.entrance-list  {
+    font-size: 12px;
+}
+
+.entrance-list p {
+    font-size: 12px;
+    margin: 2px;
 }
 
 .delete-button {
     background-color: transparent;
     color: #014034;
     font-size: 15px;
+}
+
+.comments-form {
+    margin: 20px;
 }

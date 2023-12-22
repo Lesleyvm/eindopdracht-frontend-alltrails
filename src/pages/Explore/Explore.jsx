@@ -8,12 +8,16 @@ import ParkDetail from "../../components/ParkDetail/ParkDetail.jsx";
 import axios from "axios";
 import {filterParksByFees} from "../../helpers/feeFilter.js";
 import Searchbar from "../../components/Searchbar/Searchbar.jsx";
+import Loader from "../../components/Loader/Loader.jsx";
+import Notifications from "../../components/Notifications/Notifications.jsx";
 
 function Explore() {
     const [parks, setParks] = useState([]);
     const [start, setStart] = useState(0);
     const [activityFilter, setActivityFilter] = useState('');
     const [feeFilter, setFeeFilter] = useState('');
+    const [loading, toggleLoading] = useState(false)
+    const [notification, setNotification] = useState(null);
     const limit = 16;
 
     useEffect(() => {
@@ -22,8 +26,9 @@ function Explore() {
 
     async function fetchParks(query = "") {
 
+        toggleLoading(true);
         try {
-            let apiUrl = `https://developer.nps.gov/api/v1/parks?limit=${limit}&start=${start}&api_key=hJ99K6po1RrlxynLK8tgQ4tzpR9quS7UQcOanoFX`;
+            let apiUrl = `https://developer.nps.gov/api/v1/parks?limit=${limit}&start=${start}&api_key=${import.meta.env.VITE_NPS_API_KEY}`;
 
             if (activityFilter) {
                 apiUrl += `&q=${activityFilter}`;
@@ -46,6 +51,13 @@ function Explore() {
 
         } catch (e) {
             console.error(e);
+            setNotification({
+                type: "error",
+                message: "Oops! Something went wrong. Please try again."
+            });
+
+        } finally {
+            toggleLoading(false);
         }
     }
 
@@ -82,6 +94,14 @@ function Explore() {
             <header>
                 <Navigation/>
             </header>
+            {loading && <Loader/>}
+            {notification && (
+                <Notifications
+                    type={notification.type}
+                    message={notification.message}
+                    onClose={() => setNotification(null)}
+                />
+            )}
             <main className="inner-container">
                 <div className="filter-group">
                     <Searchbar
@@ -90,11 +110,6 @@ function Explore() {
                         classNameDiv="explore-wrapper"
                         onSearch={handleSearch}
                     />
-                    {/*<Filters*/}
-                    {/*    options={['1', '2', '3', '4', '5']}*/}
-                    {/*    placeholder="Best rated"*/}
-                    {/*    classname="filters"*/}
-                    {/*/>*/}
                     <Filters
                         options={['Astronomy', 'Wildlife Watching', 'Guided Tours', 'Camping', 'Stargazing']}
                         placeholder="Activity"
@@ -127,7 +142,6 @@ function Explore() {
                         clickHandler={handleNextClick}
                     />
                 </div>
-
             </main>
             <Footer/>
         </div>

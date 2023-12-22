@@ -17,3 +17,10 @@ input {
     font-size: 12px;
     font-weight: 400;
 }
+
+.password-toggle {
+    display: flex;
+    transform: translateY(-178%) translateX(910%);
+    width: 10%;
+    position: sticky;
+}

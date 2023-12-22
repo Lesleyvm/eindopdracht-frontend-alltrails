@@ -12,6 +12,7 @@ import {useForm} from "react-hook-form";
 import {AuthContext} from "../../context/AuthContext.jsx";
 import { BsTrash3 } from "react-icons/bs";
 import Notifications from "../../components/Notifications/Notifications.jsx";
+import Loader from "../../components/Loader/Loader.jsx";
 
 function Parkinfo() {
     const [park, setPark] = useState([]);
@@ -19,6 +20,7 @@ function Parkinfo() {
     const [notification, setNotification] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [comments, setComments] = useState([]);
+    const [loading, toggleLoading] = useState(false)
     const {parkCode} = useParams();
     const {toggleFavorite, getFavorites} = useContext(FavoritesContext);
     const isFavorite = getFavorites().some(
@@ -38,6 +40,7 @@ function Parkinfo() {
 
     async function fetchPark() {
 
+        toggleLoading(true);
         try {
             const response = await axios.get(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=hJ99K6po1RrlxynLK8tgQ4tzpR9quS7UQcOanoFX`)
             // find() methode om het park te vinden dat overeenkomt met de bijhorende parkCode zodat de info weergegeven kan worden op de pagina.
@@ -47,6 +50,13 @@ function Parkinfo() {
 
         } catch (e) {
             console.error(e);
+            setNotification({
+                type: "error",
+                message: "Oops! Something went wrong. Please try again."
+            });
+
+        } finally {
+            toggleLoading(false);
         }
     }
 
@@ -77,7 +87,6 @@ function Parkinfo() {
     }
 
     function onSubmit(data) {
-        // Controleer of de gebruiker is ingelogd
         if (!isAuth) {
             setNotification({
                 type: "error",
@@ -109,13 +118,14 @@ function Parkinfo() {
     }
 
     return (
-        <>
+        <div className="outer-container">
             <header>
                 <Navigation/>
             </header>
+            {loading && <Loader/>}
             <main className="inner-container">
                 <div className="parkinfo-container">
-                    <div className="parkinfo-item">
+                    <section className="parkinfo-item">
                         <h2>{park.name}</h2>
                         <Rating
                             rating={rating}
@@ -149,7 +159,7 @@ function Parkinfo() {
                             </>
                         )}
 
-                        <form onSubmit={handleSubmit(onSubmit)} className="comment-section">
+                        <form onSubmit={handleSubmit(onSubmit)} className="comments-form">
                             <label htmlFor="comment-field">Comment</label>
                             <textarea
                                 name="comment"
@@ -195,17 +205,45 @@ function Parkinfo() {
                                 </ul>
                             )}
                         </div>
+                    </section>
 
-                    </div>
-
-                    <div>
+                    <section className="parkinfo-details">
+                        <h4>{park.fullName}</h4>
                         <p>{park.description}</p>
                         <h4>What are the weather conditions like?</h4>
                         <p>{park.weatherInfo}</p>
+                        {park.activities && park.activities.length > 0 ? (
+                            <>
+                            <h4>What to do?</h4>
+                            <ul className="activity-list">
+                                {park.activities.map((activity) => (
+                                    <li key={activity.id}>{activity.name}</li>
+                                ))}
+                            </ul>
+                            </>
+                            ) : (
+                                <i><p>No activities available.</p></i>
+                        )}
+                        {park.entranceFees && park.entranceFees.length > 0 ? (
+                            <>
+                                <h4>Entrance fees:</h4>
+                                <ul className="entrance-list">
+                                    {park.entranceFees.map((fee) => (
+                                        <li key={fee.cost}>
+                                            <strong>{fee.title}</strong>- ${fee.cost}
+                                            <p>{fee.description}</p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </>
+                        ) : (
+                            <i><p>No entrance fees required to visit this park.</p></i>
+                        )}
                         <h4>How to get there?</h4>
                         <p>{park.directionsInfo}</p>
+                        <p>{park.states}</p>
                         <h5>Not finished exploring yet? Click <Link to="/">here</Link> to return</h5>
-                    </div>
+                    </section>
 
                 </div>
                 {notification && (
@@ -217,7 +255,7 @@ function Parkinfo() {
                 )}
             </main>
             <Footer/>
-        </>
+        </div>
     )
 }
 

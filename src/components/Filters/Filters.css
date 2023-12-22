@@ -3,4 +3,5 @@
     border: 1px solid darkgrey;
     color: black;
     border-radius: 25px;
+    box-shadow: 0px 0px 8px #ddd;
 }

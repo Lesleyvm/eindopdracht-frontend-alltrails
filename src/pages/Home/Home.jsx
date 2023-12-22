@@ -13,13 +13,10 @@ function Home() {
             <main>
                 <h1>Discover the outdoors within you</h1>
                 <Searchbar
-                    placeholder="Let's start exploring.. Where are we going?"
+                    placeholder="Click on explore to start exploring..."
                     className="home-input"
                     classNameDiv="home-wrapper"
                 />
-                <div>
-                    {/*    hier komt top rated*/}
-                </div>
             </main>
             <Footer/>
         </div>

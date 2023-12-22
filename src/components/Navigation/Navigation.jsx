@@ -8,7 +8,6 @@ import {AuthContext} from "../../context/AuthContext.jsx";
 function Navigation() {
     const {isAuth, logout} = useContext(AuthContext);
     const navigate = useNavigate();
-
     function handleProfileButtonClick () {
         navigate('/profile');
     }
@@ -29,7 +28,6 @@ function Navigation() {
                     <NavLink to="/contact" className={({isActive}) => isActive ? 'active-link' : 'default-link'}>
                         Contact</NavLink>
                 </li>
-                {/*niet vergeten te kijken naar active links!*/}
                 {isAuth ?
                     <li>
                         <Button

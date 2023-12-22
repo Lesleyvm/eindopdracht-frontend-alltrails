@@ -2,6 +2,7 @@ import {createContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {jwtDecode} from "jwt-decode";
+import Loader from "../components/Loader/Loader.jsx";
 export const AuthContext = createContext({})
 function AuthContextProvider({children}) {
     const [isAuth, toggleIsAuth] = useState({
@@ -36,7 +37,6 @@ function AuthContextProvider({children}) {
         //  hiermee decodeer ik de informatie uit de token
         const userinfo = jwtDecode(token);
         console.log(userinfo);
-        // const userId = userinfo.sub; // hier snap ik het punt even niet meer van?
 
 
         try {
@@ -60,7 +60,6 @@ function AuthContextProvider({children}) {
             });
 
             navigate('/profile');
-            console.log("Gebruiker is ingelogd!");
 
         } catch (e) {
             console.error(e);
@@ -68,7 +67,7 @@ function AuthContextProvider({children}) {
             toggleIsAuth({
                 ...isAuth,
                 status: 'done'
-            })
+            });
         }
     }
 
@@ -85,7 +84,6 @@ function AuthContextProvider({children}) {
         });
 
         navigate('/');
-        console.log("Gebruiker is uitgelogd!");
     }
 
     const data = {
@@ -100,7 +98,7 @@ function AuthContextProvider({children}) {
 
     return (
         <AuthContext.Provider value={data}>
-            {isAuth.status === 'done' ? children : <p>Loading..</p>}
+            {isAuth.status === 'done' ? children : <Loader/> }
         </AuthContext.Provider>
     )
 }

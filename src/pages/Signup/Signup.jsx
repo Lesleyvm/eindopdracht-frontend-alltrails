@@ -7,9 +7,11 @@ import Button from "../../components/Button/Button.jsx";
 import axios from "axios";
 import {useState} from "react";
 import Notifications from "../../components/Notifications/Notifications.jsx";
+import Loader from "../../components/Loader/Loader.jsx";
 
 function Signup() {
     const [notification, setNotification] = useState(null);
+    const [loading, toggleLoading] = useState(false);
     const {register, handleSubmit, formState: {errors}} = useForm();
     const navigate = useNavigate();
 
@@ -21,6 +23,7 @@ function Signup() {
             role: ['user']
         }
 
+        toggleLoading(true);
         try {
             const response = await axios.post("https://frontend-educational-backend.herokuapp.com/api/auth/signup", formData);
             console.log(response);
@@ -49,6 +52,9 @@ function Signup() {
                     message: "Oops! Something went wrong. Please try again."
                 });
             }
+
+        } finally {
+            toggleLoading(false);
         }
     }
 
@@ -64,7 +70,7 @@ function Signup() {
 
             <main className="inner-container signup-section">
                 <h2>Start your adventure right here.</h2>
-
+                {loading && <Loader/>}
                 {notification && (
                     <Notifications
                         type={notification.type}
@@ -93,7 +99,6 @@ function Signup() {
                         errors={errors}
                     />
 
-                    {/*notitie maken van automatische e-mail validatie React*/}
                     <InputFields
                         label="E-mail"
                         type="email"
@@ -110,7 +115,7 @@ function Signup() {
                             />
                             <InputFields
                             label="Password"
-                            type="text"
+                            type="password"
                             name="password-field"
                             id="password-field"
                             register={register}
@@ -126,6 +131,7 @@ function Signup() {
                         }}
                         errors={errors}
                     />
+
                     <div className="button-wrapper">
                         <Button
                             text="Create account"

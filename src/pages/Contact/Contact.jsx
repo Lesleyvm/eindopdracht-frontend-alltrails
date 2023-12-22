@@ -4,9 +4,7 @@ import Button from "../../components/Button/Button.jsx";
 import './Contact.css';
 import {useState} from "react";
 import {Link} from "react-router-dom";
-import Navigation from "../../components/Navigation/Navigation.jsx";
-import Footer from "../../components/Footer/Footer.jsx";
-
+import logo from "../../assets/alltrails-logo.png";
 function Contact() {
     const [success, toggleSuccess] = useState(false);
     const {register, handleSubmit, formState: {errors}} = useForm();
@@ -30,10 +28,12 @@ function Contact() {
     }
 
     return (
-        <div className="outer-container">
-            <header>
-                <Navigation/>
-            </header>
+        <div id="contact" className="outer-container">
+            <span className="logo-wrapper secondary-logo">
+                <Link to="/">
+                <img src={logo} alt="Company Logo"/>
+                </Link>
+            </span>
 
             <main className="inner-container contact-section">
                 {success ? (
@@ -43,7 +43,7 @@ function Contact() {
                     </div>
                 ) : (
                     <div className="contactform-wrapper">
-                        <h2>How can we help?</h2>
+                        <h2>Submit a request</h2>
                         <form onSubmit={handleSubmit(handleFormSubmit)}
                               className="contactform">
                             <select defaultValue=""
@@ -55,7 +55,7 @@ function Contact() {
                                     })}
                             >
                                 <option value="" disabled hidden>
-                                    Select a subject
+                                    How can we help?
                                 </option>
                                 <option>Technical issue</option>
                                 <option>Account</option>
@@ -132,9 +132,8 @@ function Contact() {
                             </div>
                         </form>
                     </div>
-                )}
+                )};
             </main>
-            <Footer/>
         </div>
     )
 }

@@ -1,15 +1,28 @@
+#contact {
+    background-image: url('src/assets/contact.jpg');
+    background-size: 45% 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+}
 
 .contactform {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    /*border: 1px solid #02735E;*/
+}
+
+.contactform-wrapper {
+    margin-right: 550px;
+}
+
+.contactform-wrapper h2 {
+    margin-bottom: 20px;
 }
 
 .contactform select {
     border-radius: 50px;
     border: 1px solid darkgrey;
-    padding: 6px;
+    padding: 8px;
 }
 
 .contact-section {
@@ -20,11 +33,6 @@
     color: #014034;
     font-size: 30px;
     text-align: center;
-}
-
-.contact-logo img {
-    max-height: 50px;
-    margin: 45px 60px;
 }
 
 .description-area {

@@ -11,8 +11,8 @@ import Notifications from "../../components/Notifications/Notifications.jsx";
 
 function Login() {
     const [notification, setNotification] = useState(null);
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const { login } = useContext(AuthContext);
+    const {register, handleSubmit, formState: {errors}} = useForm();
+    const {login} = useContext(AuthContext);
 
     async function handleFormSubmit(data) {
         const formData = {
@@ -78,10 +78,10 @@ function Login() {
                             },
                         }}
                         errors={errors}
-                        />
+                    />
                     <InputFields
                         label="Password"
-                        type="text"
+                        type="password"
                         name="password-field"
                         id="password-field"
                         register={register}
@@ -97,17 +97,19 @@ function Login() {
                         }}
                         errors={errors}
                     />
+
                     <div className="button-wrapper">
-                    <Button
-                        text="Log in"
-                        buttonType="submit"
-                    />
+                        <Button
+                            text="Log in"
+                            buttonType="submit"
+                        />
                     </div>
                 </form>
 
                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-            <p className="no-account">Don't have an account yet? Click <Link to="/signup">here</Link> to register.</p>
-            <Link to="/contact"><h4>Help</h4></Link>
+                <p className="no-account">Don't have an account yet? Click <Link to="/signup">here</Link> to register.
+                </p>
+                <Link to="/contact"><h4>Help</h4></Link>
             </div>
 
         </div>
