@@ -35,7 +35,6 @@ function Profile() {
             });
 
             setProfile(response.data);
-            // console.log(response);
 
         } catch (e) {
             console.error(e);
@@ -76,7 +75,6 @@ function Profile() {
                 // Upload de profielfoto naar de server
                 uploadProfilePicture(base64Image);
             };
-
             // Lees het bestand als een Data URL (base64)
             reader.readAsDataURL(file);
         }
@@ -89,8 +87,6 @@ function Profile() {
             </header>
             <main className="inner-container">
                 <section className="profile-section">
-
-                    {/*input component niet mogelijk vanwege register voor hookform*/}
 
                     {profilePicture ?
                         <div className="picture-editing">
@@ -108,7 +104,6 @@ function Profile() {
                                        onChange={handleFileUpload}
                                 />
                             </label>
-
                         </div>
                         :
                         <label htmlFor="file-input"

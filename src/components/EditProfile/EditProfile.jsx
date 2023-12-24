@@ -27,7 +27,7 @@ function EditProfile() {
         }
 
         try {
-            // Geeft een foutmelding als er geen gegevens zijn ingevoerd
+
             if (!Object.keys(formData).length) {
                 setNotification({
                     type: "error",

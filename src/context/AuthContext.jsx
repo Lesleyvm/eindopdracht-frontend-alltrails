@@ -19,6 +19,7 @@ function AuthContextProvider({children}) {
         if(token) {
         // Zo ja? Haal informatie opnieuw op
            void login(token);
+
         } else {
         toggleIsAuth({
             ...isAuth,

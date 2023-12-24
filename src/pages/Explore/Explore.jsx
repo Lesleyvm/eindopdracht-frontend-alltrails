@@ -10,6 +10,7 @@ import {filterParksByFees} from "../../helpers/feeFilter.js";
 import Searchbar from "../../components/Searchbar/Searchbar.jsx";
 import Loader from "../../components/Loader/Loader.jsx";
 import Notifications from "../../components/Notifications/Notifications.jsx";
+import {debounce} from "../../helpers/debounce.js";
 
 function Explore() {
     const [parks, setParks] = useState([]);
@@ -18,50 +19,54 @@ function Explore() {
     const [feeFilter, setFeeFilter] = useState('');
     const [loading, toggleLoading] = useState(false)
     const [notification, setNotification] = useState(null);
+    const debouncedFetchParks = debounce(fetchParks, 500);
     const limit = 16;
 
     useEffect(() => {
         void fetchParks();
+
     }, [start, activityFilter, feeFilter]);
 
-    async function fetchParks(query = "") {
+        async function fetchParks(query = "") {
+            toggleLoading(true);
 
-        toggleLoading(true);
-        try {
-            let apiUrl = `https://developer.nps.gov/api/v1/parks?limit=${limit}&start=${start}&api_key=${import.meta.env.VITE_NPS_API_KEY}`;
+            try {
+                let apiUrl = `https://developer.nps.gov/api/v1/parks?limit=${limit}&start=${start}&api_key=${import.meta.env.VITE_NPS_API_KEY}`;
 
-            if (activityFilter) {
-                apiUrl += `&q=${activityFilter}`;
+                if (activityFilter) {
+                    apiUrl += `&q=${activityFilter}`;
+                }
+
+                if (query) {
+                    apiUrl += `&q=${query}`;
+                }
+
+                const response = await axios.get(apiUrl);
+                let filteredParks = response.data.data;
+
+                if (feeFilter) {
+                    filteredParks = filteredParks.filter((park) =>
+                        filterParksByFees(park, feeFilter)
+                    );
+                }
+
+                setParks(filteredParks);
+
+            } catch (e) {
+                    console.error(e);
+
+                    setNotification({
+                        type: "error",
+                        message: "Oops! Something went wrong. Please try again."
+                    });
+
+            } finally {
+                toggleLoading(false);
             }
-
-            if (query) {
-                apiUrl += `&q=${query}`;
-            }
-
-            const response = await axios.get(apiUrl);
-            let filteredParks = response.data.data;
-
-            if (feeFilter) {
-                filteredParks = filteredParks.filter((park) =>
-                    filterParksByFees(park, feeFilter)
-                );
-            }
-
-            setParks(filteredParks);
-
-        } catch (e) {
-            console.error(e);
-            setNotification({
-                type: "error",
-                message: "Oops! Something went wrong. Please try again."
-            });
-
-        } finally {
-            toggleLoading(false);
         }
-    }
 
-    // functie gemaakt om door alle beschikbare parken te kunnen bladeren
+
+    // om door alle beschikbare parken te kunnen bladeren
     function handleNextClick(){
         setStart(start + limit);
     }
@@ -71,7 +76,7 @@ function Explore() {
         }
     }
 
-    // functies om te kunnen filter/zoeken
+    // om te kunnen filter/zoeken
     function handleActivityFilterChange(filter) {
         setActivityFilter(filter);
     }
@@ -85,7 +90,8 @@ function Explore() {
         setFeeFilter('');
         setStart(0);
 
-        void fetchParks(query);
+        // om te voorkomen dat een request uitgevoert wordt bij iedere getypte letter
+        debouncedFetchParks(query);
     }
 
 

@@ -27,9 +27,11 @@ function Signup() {
         try {
             const response = await axios.post("https://frontend-educational-backend.herokuapp.com/api/auth/signup", formData);
             console.log(response);
-            console.log("Account is succesvol aangemaakt!")
 
-            setNotification({ type: "success", message: "Account successfully created!" });
+            setNotification({
+                type: "success",
+                message: "Account successfully created!"
+            });
             // timer ingesteld voor message voordat gebruiker doorgestuurd wordt
             setTimeout(() => {
                 navigate('/login');

@@ -22,8 +22,6 @@ function Login() {
 
         try {
             const response = await axios.post("https://frontend-educational-backend.herokuapp.com/api/auth/signin", formData);
-            // console.log(response.data.accessToken);
-
             login(response.data.accessToken);
 
         } catch (e) {
@@ -33,10 +31,7 @@ function Login() {
                 type: "error",
                 message: "Please use a valid username or password.",
             });
-            console.log(notification);
-
         }
-
     }
 
     return (
@@ -58,7 +53,6 @@ function Login() {
             <div className="inner-container login-section">
                 <h2>Welcome back adventurer.</h2>
                 <h2>Log in and start exploring.</h2>
-
 
                 <form onSubmit={handleSubmit(handleFormSubmit)}>
                     <InputFields

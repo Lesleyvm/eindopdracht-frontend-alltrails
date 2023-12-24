@@ -42,7 +42,7 @@ function Parkinfo() {
 
         toggleLoading(true);
         try {
-            const response = await axios.get(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=hJ99K6po1RrlxynLK8tgQ4tzpR9quS7UQcOanoFX`)
+            const response = await axios.get(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${import.meta.env.VITE_NPS_API_KEY}`)
             // find() methode om het park te vinden dat overeenkomt met de bijhorende parkCode zodat de info weergegeven kan worden op de pagina.
             const matchingPark = response.data.data.find(park => park.parkCode === parkCode);
             setPark(matchingPark);
