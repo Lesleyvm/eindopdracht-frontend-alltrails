@@ -132,7 +132,7 @@ function Contact() {
                             </div>
                         </form>
                     </div>
-                )};
+                )}
             </main>
         </div>
     )

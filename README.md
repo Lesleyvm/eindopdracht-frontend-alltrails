@@ -1,7 +1,7 @@
 # AllTrails; The hiking app for you.
 
 ## Inleiding 
-Zelf houdt ik er van om te wandelen met de hond en nieuwe (losloop)gebieden te ontdekken in de natuur. Ik vind het echter altijd lastig om nieuwe plekken te vinden en ben erg veel tijd kwijt aan het zoeken op Google of gewoon maar rond rijden, hopen dat ik vanzelf iets tegen kom. Met dit probleem in gedachte heb ik AllTrails ontwikkelt. De applicatie die het mogelijk maakt om gemakkelijk mooie nieuwe plekken in de natuur de ontdekken. De applicatie is ontwikkeld als eindopdracht voor de Frontend Leerlijn, op Novi Hogeschool.
+Zelf houdt ik er van om te wandelen met de hond en nieuwe (losloop)gebieden te ontdekken in de natuur. Ik vind het echter altijd lastig om nieuwe plekken te vinden en ben erg veel tijd kwijt aan het zoeken op Google of gewoon maar rond rijden, hopen dat ik vanzelf iets tegen kom. Met dit probleem in gedachte heb ik AllTrails ontwikkelt. De applicatie die het mogelijk maakt om gemakkelijk mooie nieuwe plekken in de natuur de ontdekken. De applicatie is ontwikkeld als eindopdracht voor de Frontend Leerlijn, op NOVI Hogeschool.
 
 ![screenshot](src/assets/Screenshot-home.png)
 
@@ -20,10 +20,10 @@ Zodra je dit gedaan hebt kun je beginnen met het runnen van de applicatie met be
 npm run dev
 ```
 
-Open [http://localhost:5173/](http://localhost:5173/) om de pagina in de browser te kunnen bekijken. Elke keer als je het bestand op slaat kun je de wijzingen hier terug zien.
+Open [http://localhost:5173/](http://localhost:5173/) om de pagina in de browser te kunnen bekijken. Elke keer als je het bestand op slaat kun je de wijzingen hier terug zien. Gebruik de DevTools in je browser om jouw code te debuggen en belangrijke metadata op te halen.
 
 ## Overige commando's
-Om verder te kunnen werken aan dit project is het belangrijk dat je eerst de huidige repository loskoppeld. Dit doe je met het volgende commando:
+Om verder te kunnen werken aan dit project is het belangrijk dat je eerst de huidige repository loskoppelt. Dit doe je met het volgende commando:
 
 ```shell
 git remote remove origin
@@ -52,5 +52,7 @@ Voor deze applicatie is er gebruik gemaakt van NOVI-backend om het inloggen en r
   * De documentatie van de NPS API kun je [hier](https://www.nps.gov/subjects/developer/api-documentation.htm#/activities/parks) terug vinden. 
   * De data van de API kan niet opgehaald worden zonder een persoonlijke key. Deze key staat voor de veiligheid in een apart bestand, en deze wordt tijdens het pushen naar Git in gitignore geplaatst en hierdoor niet meegenomen. Het is dus van belang dat je zelf éénmalig een nieuw `.env` bestand aanmaakt in het hoofdbestand van jouw project. 
   * In dit bestand plaats je de volgende tekst: `VITE_NPS_API_KEY=hJ99K6po1RrlxynLK8tgQ4tzpR9quS7UQcOanoFX`
+
+Tot slot kun je de link naar de Github Repository [hier](https://github.com/Lesleyvm/eindopdracht-frontend-alltrails) vinden.
 
 Je bent er inmiddels helemaal klaar voor, so _let's get started!_  😉
