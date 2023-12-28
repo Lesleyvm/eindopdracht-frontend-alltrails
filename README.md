@@ -22,8 +22,6 @@ npm run dev
 
 Open [http://localhost:5173/](http://localhost:5173/) om de pagina in de browser te kunnen bekijken. Elke keer als je het bestand op slaat kun je de wijzingen hier terug zien.
 
----
-
 ## Overige commando's
 Om verder te kunnen werken aan dit project is het belangrijk dat je eerst de huidige repository loskoppeld. Dit doe je met het volgende commando:
 
@@ -44,12 +42,8 @@ git checkout -b name-of-branch
 * `git push origin name-of-branch` om wijzigen naar Git te pushen als je op een feature branch werkt.
 * `git push origin main` om wijzigen naar Git te pushen als je op de main branch werkt.
 
----
-
 ### _Tip van Flip:_
-Ben je jouw project aan het runnen en wil je Git commando's uitvoeren? Voer dan eerst de letter "Q" in de terminal om te stoppen met het runnen van de applicatie. 
-
----
+Ben je jouw project aan het runnen en wil je Git commando's uitvoeren? Voer dan eerst de letter "Q" in de terminal om te stoppen met het runnen van de applicatie.
 
 ## Benodigheden
 
