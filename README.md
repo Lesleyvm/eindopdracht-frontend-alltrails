@@ -42,12 +42,12 @@ git checkout -b name-of-branch
 * `git push origin name-of-branch` om wijzigen naar Git te pushen als je op een feature branch werkt.
 * `git push origin main` om wijzigen naar Git te pushen als je op de main branch werkt.
 
-### _Tip van Flip:_
+> **Tip van Flip:**
 Ben je jouw project aan het runnen en wil je Git commando's uitvoeren? Voer dan eerst de letter "Q" in de terminal om te stoppen met het runnen van de applicatie.
 
 ## Benodigheden
 
-> Voor deze applicatie is er gebruik gemaakt van NOVI-backend om het inloggen en registreren af te handelen. De documentatie daarvoor kun je [hier](https://github.com/hogeschoolnovi/novi-educational-backend-documentation/blob/main/README.md#0-test) terug vinden. Wat verder belangrijk is voor het runnen van de applicatie, is de API. Deze is namelijk nodig om de data over de parken op te kunnen halen doormiddel van netwerk requests.
+Voor deze applicatie is er gebruik gemaakt van NOVI-backend om het inloggen en registreren af te handelen. De documentatie daarvoor kun je [hier](https://github.com/hogeschoolnovi/novi-educational-backend-documentation/blob/main/README.md#0-test) terug vinden. Wat verder belangrijk is voor het runnen van de applicatie, is de API. Deze is namelijk nodig om de data over de parken op te kunnen halen doormiddel van netwerk requests.
 
   * De documentatie van de NPS API kun je [hier](https://www.nps.gov/subjects/developer/api-documentation.htm#/activities/parks) terug vinden. 
   * De data van de API kan niet opgehaald worden zonder een persoonlijke key. Deze key staat voor de veiligheid in een apart bestand, en deze wordt tijdens het pushen naar Git in gitignore geplaatst en hierdoor niet meegenomen. Het is dus van belang dat je zelf éénmalig een nieuw `.env` bestand aanmaakt in het hoofdbestand van jouw project. 
