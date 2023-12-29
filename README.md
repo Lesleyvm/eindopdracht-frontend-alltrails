@@ -50,7 +50,7 @@ Ben je jouw project aan het runnen en wil je Git commando's uitvoeren? Voer dan 
 Voor deze applicatie is er gebruik gemaakt van NOVI-backend om het inloggen en registreren af te handelen. De documentatie daarvoor kun je [hier](https://github.com/hogeschoolnovi/novi-educational-backend-documentation/blob/main/README.md#0-test) terug vinden. Wat verder belangrijk is voor het runnen van de applicatie, is de API. Deze is namelijk nodig om de data over de parken op te kunnen halen doormiddel van netwerk requests.
 
   * De documentatie van de NPS API kun je [hier](https://www.nps.gov/subjects/developer/api-documentation.htm#/activities/parks) terug vinden. 
-  * De data van de API kan niet opgehaald worden zonder een persoonlijke key. Deze key staat voor de veiligheid in een apart bestand, en deze wordt tijdens het pushen naar Git in gitignore geplaatst en hierdoor niet meegenomen. Het is dus van belang dat je zelf éénmalig een nieuw `.env` bestand aanmaakt in het hoofdbestand van jouw project. 
+  * De data van de API kan niet opgehaald worden zonder een persoonlijke key. Deze key staat voor de veiligheid in een apart bestand, en deze wordt tijdens het pushen naar Git in gitignore geplaatst en hierdoor niet meegenomen. Het is dus van belang dat je zelf éénmalig een nieuw `.env` bestand aanmaakt in de root van jouw React project map. 
   * In dit bestand plaats je de volgende tekst: `VITE_NPS_API_KEY=hJ99K6po1RrlxynLK8tgQ4tzpR9quS7UQcOanoFX`
 
 Tot slot kun je de link naar de Github Repository [hier](https://github.com/Lesleyvm/eindopdracht-frontend-alltrails) vinden.
