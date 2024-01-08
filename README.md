@@ -39,8 +39,8 @@ git checkout -b name-of-branch
 * `git status` om de status van gestagede bestanden te zien.
 * `git commit -m "description"` om alle wijzigingen te committen en klaar te zetten voor de push.
 * `git log` om te zien welke commits er klaar staan voor de push.
-* `git push origin name-of-branch` om wijzigen naar Git te pushen als je op een feature branch werkt.
-* `git push origin main` om wijzigen naar Git te pushen als je op de main branch werkt.
+* `git push origin name-of-branch` om wijzigingen naar Git te pushen als je op een feature branch werkt.
+* `git push origin main` om wijzigingen naar Git te pushen als je op de main branch werkt.
 
 > **Tip van Flip:**
 Ben je jouw project aan het runnen en wil je Git commando's uitvoeren? Voer dan eerst de letter "Q" in de terminal om te stoppen met het runnen van de applicatie.
