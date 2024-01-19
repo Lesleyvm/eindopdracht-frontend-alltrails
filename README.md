@@ -18,13 +18,13 @@ Wat daarnaast ook  erg belangrijk is voor het runnen van de applicatie, is de AP
 
 ## Applicatie starten
 Om te beginnen clone je het project vanuit Git naar jouw lokale machine (een IDE naar keuze). Let goed op dat je bij het kopiëren van de link voor "SSH" kiest.
-Een stap die we niet over kunnen slaan, in het zorgen voor de installatie van `Node.js` & `npm`. Deze heb je namelijk nodig om de applicatie te kunnen runnen. Om de laatste versie hiervan te downloaden kun je het volgende commando uitvoeren in jouw terminal:
+Een stap die we niet over kunnen slaan, is het zorgen voor de installatie van `Node.js` & `npm`. Deze heb je namelijk nodig om de applicatie te kunnen runnen. Om de laatste versie hiervan te downloaden kun je het volgende commando uitvoeren in jouw terminal:
 
 ```shell
 npm install -g npm
 ```
 
-Ben je er niet meer helemaal zeker van dat jij dit al hebt geïnstalleerd, of wil je weten welke versie dit ook al weer was? Gebruik dan de volgende commando's om dit te controleren:
+Ben je er niet helemaal zeker meer van dat jij dit al hebt geïnstalleerd, of wil je weten welke versie dit ook al weer was? Gebruik dan de volgende commando's om dit te controleren:
 
 ```shell
 node -v
