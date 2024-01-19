@@ -55,7 +55,6 @@ function Profile() {
             setProfilePicture(response.data.base64Image)
             // Sla de afbeeldings-URL op in localStorage
             localStorage.setItem('profilePictureUrl', response.data.base64Image);
-            console.log(response);
 
         } catch (e) {
             console.error(e);
@@ -89,7 +88,7 @@ function Profile() {
                 <section className="profile-section">
 
                     {profilePicture ?
-                        <div className="picture-editing">
+                        <article className="picture-editing">
                             <img src={profilePicture}
                                  alt="Profile"
                                  className="profile-picture"
@@ -104,7 +103,7 @@ function Profile() {
                                        onChange={handleFileUpload}
                                 />
                             </label>
-                        </div>
+                        </article>
                         :
                         <label htmlFor="file-input"
                                className="profile-buttons"
@@ -117,15 +116,15 @@ function Profile() {
                         />
                         </label>
                     }
-                    <div className="profile-info">
+                    <article className="profile-info">
                         <h2>Welkom {profile.username}!</h2>
                         <strong><p>E-mail:</p></strong>
                         <p>{profile.email}</p>
                         <Link to="/favorites"><p> <strong>My favorites</strong></p></Link>
-                    </div>
-                    <div className="edit-profile">
+                    </article>
+                    <article className="edit-profile">
                         <EditProfile/>
-                    </div>
+                    </article>
                 </section>
             </main>
             <Footer/>

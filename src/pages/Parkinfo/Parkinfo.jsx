@@ -180,7 +180,7 @@ function Parkinfo() {
                             />
                         </form>
 
-                        <div>
+                        <article>
                             <h3>Submitted Comments:</h3>
                             {comments.length === 0 ? (
                                 <p>This park has no comments yet.</p>
@@ -204,7 +204,7 @@ function Parkinfo() {
                                     ))}
                                 </ul>
                             )}
-                        </div>
+                        </article>
                     </section>
 
                     <section className="parkinfo-details">

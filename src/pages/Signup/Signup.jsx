@@ -26,7 +26,6 @@ function Signup() {
         toggleLoading(true);
         try {
             const response = await axios.post("https://frontend-educational-backend.herokuapp.com/api/auth/signup", formData);
-            console.log(response);
 
             setNotification({
                 type: "success",

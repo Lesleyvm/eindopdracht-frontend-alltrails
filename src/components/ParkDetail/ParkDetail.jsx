@@ -18,7 +18,7 @@ function ParkDetail({park}) {
 
     return (
         <div key={park.id} className="park-item">
-            <div className="image-container">
+            <section className="image-container">
                 {park.images && park.images.length > 0 && (
                     <img
                         src={park.images[0].url}
@@ -32,8 +32,8 @@ function ParkDetail({park}) {
                     className="favorite-button"
                     clickHandler={() => toggleFavorite(park)}
                 />
-            </div>
-            <div className="park-description">
+            </section>
+            <section className="park-description">
                 <Link to={`/parkinfo/${park.parkCode}`}>
                     <p className="park-title">
                         <strong>{park.name}</strong>
@@ -41,7 +41,7 @@ function ParkDetail({park}) {
                     <p className="park-states">{park.states}</p>
                     <Rating rating={rating}/>
                 </Link>
-            </div>
+            </section>
         </div>
     );
 }

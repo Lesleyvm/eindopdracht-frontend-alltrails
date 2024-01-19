@@ -109,7 +109,7 @@ function Explore() {
                 />
             )}
             <main className="inner-container">
-                <div className="filter-group">
+                <section className="filter-group">
                     <Searchbar
                         placeholder="Where are we going..."
                         className="explore-input"
@@ -130,15 +130,15 @@ function Explore() {
                         onChange={handleFeeFilterChange}
                         selectedValue={feeFilter}
                     />
-                </div>
+                </section>
 
-                <div className="park-list">
+                <article className="park-list">
                     {parks.map((park) => (
                         <ParkDetail key={park.parkCode} park={park}/>
                     ))}
-                </div>
+                </article>
 
-                <div className="buttons-explore">
+                <section className="buttons-explore">
                     <Button
                         text="Previous"
                         clickHandler={handlePrevClick}
@@ -147,7 +147,7 @@ function Explore() {
                         text="Next"
                         clickHandler={handleNextClick}
                     />
-                </div>
+                </section>
             </main>
             <Footer/>
         </div>

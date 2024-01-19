@@ -19,7 +19,6 @@ function Contact() {
 
         try {
             toggleSuccess(true);
-            console.log(formData);
 
         } catch (e) {
             console.error(e);
@@ -42,7 +41,7 @@ function Contact() {
                             2 working-days. Click <Link to="/">here</Link> to get back to exploring.</p>
                     </div>
                 ) : (
-                    <div className="contactform-wrapper">
+                    <section className="contactform-wrapper">
                         <h2>Submit a request</h2>
                         <form onSubmit={handleSubmit(handleFormSubmit)}
                               className="contactform">
@@ -131,7 +130,7 @@ function Contact() {
                                 />
                             </div>
                         </form>
-                    </div>
+                    </section>
                 )}
             </main>
         </div>

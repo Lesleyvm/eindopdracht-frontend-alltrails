@@ -37,7 +37,6 @@ function AuthContextProvider({children}) {
 
         //  hiermee decodeer ik de informatie uit de token
         const userinfo = jwtDecode(token);
-        console.log(userinfo);
 
 
         try {
@@ -48,7 +47,6 @@ function AuthContextProvider({children}) {
                     Authorization: `Bearer ${token}`,
                 }
             });
-            console.log(response);
 
             toggleIsAuth({
                 isAuthenticated: true,
