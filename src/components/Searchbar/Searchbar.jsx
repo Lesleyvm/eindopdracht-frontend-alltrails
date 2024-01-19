@@ -5,7 +5,7 @@ import './Searchbar.css';
 function Searchbar({ onSearch, placeholder, className, classNameDiv}) {
     const [query, setQuery] = useState('');
 
-    async function handleInputChange(e) {
+    function handleInputChange(e) {
         setQuery(e.target.value);
         onSearch(e.target.value);
     }
