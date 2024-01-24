@@ -60,6 +60,7 @@ git checkout -b name-of-branch
 ```
 **Overige commando's die je veel zult gebruiken:**
 
+* `git init .` om Git te initialiseren in jouw project. LET OP! Als je een project cloned gebeurd dit automatisch al.
 * `git add .` om alle wijzigen te stagen.
 * `git status` om de status van gestagede bestanden te zien.
 * `git commit -m "description"` om alle wijzigingen te committen en klaar te zetten voor de push.
